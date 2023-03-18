@@ -1,0 +1,25 @@
+#-----------------------------------------------------------
+# Vivado v2019.2 (64-bit)
+# SW Build 2708876 on Wed Nov  6 21:39:14 MST 2019
+# IP Build 2700528 on Thu Nov  7 00:09:20 MST 2019
+# Start of session at: Sat Mar 11 19:04:27 2023
+# Process ID: 3696861
+# Current directory: /home/amass/Documents/ECE540/Lab4/RVfpga-Lab4Fin
+# Command line: vivado
+# Log file: /home/amass/Documents/ECE540/Lab4/RVfpga-Lab4Fin/vivado.log
+# Journal file: /home/amass/Documents/ECE540/Lab4/RVfpga-Lab4Fin/vivado.jou
+#-----------------------------------------------------------
+start_gui
+open_project /home/amass/Documents/ECE540/Lab4/RVfpga-Lab4Fin/Labs/Lab04/project_lab4/project_lab4.xpr
+CRITICAL WARNING: [Project 1-19] Could not find the file '/home/amass/Documents/ECE540/Lab4/RVfpga-Lab4Fin/mycoefile.coe'.
+CRITICAL WARNING: [Project 1-19] Could not find the file '/home/amass/Documents/ECE540/mycoefile1star.coe'.
+Scanning sources...
+Finished scanning sources
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository '/tools/Xilinx/Vivado/2019.2/data/ip'.
+open_project: Time (s): cpu = 00:00:23 ; elapsed = 00:00:09 . Memory (MB): peak = 6529.078 ; gain = 176.930 ; free physical = 9905 ; free virtual = 15277
+WARNING: [filemgmt 56-315] Source scanning failed during design analysis. To get more details run synthesis or simulation and check the log.
+update_compile_order -fileset sources_1
+exit
+INFO: [Common 17-206] Exiting Vivado at Sat Mar 11 19:07:41 2023...

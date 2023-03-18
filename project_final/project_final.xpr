@@ -467,7 +467,7 @@
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
       </File>
-      <File Path="$PPRDIR/../src/SweRVolfSoC/Peripherals/vga/alien2.sv">
+      <File Path="$PPRDIR/../src/SweRVolfSoC/Peripherals/vga/alienA.sv">
         <FileInfo>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
@@ -998,6 +998,13 @@
         <FileInfo>
           <Attr Name="ImportPath" Val="$PPRDIR/../src/SweRVolfSoC/SweRVEh1CoreComplex/pic/pic_ctrl.sv"/>
           <Attr Name="ImportTime" Val="1678649412"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../src/SweRVolfSoC/Peripherals/vga/player_module.sv">
+        <FileInfo>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>

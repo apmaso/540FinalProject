@@ -1,7 +1,7 @@
 Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
 -------------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version     : Vivado v.2019.2 (lin64) Build 2708876 Wed Nov  6 21:39:14 MST 2019
-| Date             : Tue Mar 14 18:02:42 2023
+| Date             : Fri Mar 17 21:00:03 2023
 | Host             : amass-MacBookPro running 64-bit Ubuntu 22.04.2 LTS
 | Command          : report_power -file rvfpganexys_power_routed.rpt -pb rvfpganexys_power_summary_routed.pb -rpx rvfpganexys_power_routed.rpx
 | Design           : rvfpganexys
@@ -30,10 +30,10 @@ Table of Contents
 ----------
 
 +--------------------------+--------------+
-| Total On-Chip Power (W)  | 1.047        |
+| Total On-Chip Power (W)  | 1.050        |
 | Design Power Budget (W)  | Unspecified* |
 | Power Budget Margin (W)  | NA           |
-| Dynamic (W)              | 0.934        |
+| Dynamic (W)              | 0.937        |
 | Device Static (W)        | 0.113        |
 | Effective TJA (C/W)      | 4.6          |
 | Max Ambient (C)          | 80.2         |
@@ -52,23 +52,23 @@ Table of Contents
 +--------------------------+-----------+----------+-----------+-----------------+
 | On-Chip                  | Power (W) | Used     | Available | Utilization (%) |
 +--------------------------+-----------+----------+-----------+-----------------+
-| Clocks                   |     0.043 |       16 |       --- |             --- |
-| Slice Logic              |     0.018 |    62426 |       --- |             --- |
-|   LUT as Logic           |     0.016 |    34434 |     63400 |           54.31 |
+| Clocks                   |     0.044 |       16 |       --- |             --- |
+| Slice Logic              |     0.019 |    63820 |       --- |             --- |
+|   LUT as Logic           |     0.017 |    35457 |     63400 |           55.93 |
+|   CARRY4                 |    <0.001 |     1380 |     15850 |            8.71 |
 |   LUT as Distributed RAM |    <0.001 |      292 |     19000 |            1.54 |
-|   CARRY4                 |    <0.001 |     1001 |     15850 |            6.32 |
-|   Register               |    <0.001 |    19265 |    126800 |           15.19 |
-|   F7/F8 Muxes            |    <0.001 |      516 |     63400 |            0.81 |
+|   Register               |    <0.001 |    19244 |    126800 |           15.18 |
+|   F7/F8 Muxes            |    <0.001 |      509 |     63400 |            0.80 |
 |   LUT as Shift Register  |    <0.001 |        3 |     19000 |            0.02 |
-|   Others                 |     0.000 |     1315 |       --- |             --- |
-| Signals                  |     0.026 |    50766 |       --- |             --- |
-| Block RAM                |     0.057 |      100 |       135 |           74.07 |
+|   Others                 |     0.000 |     1327 |       --- |             --- |
+| Signals                  |     0.026 |    51704 |       --- |             --- |
+| Block RAM                |     0.060 |      100 |       135 |           74.07 |
 | MMCM                     |     0.120 |        1 |         6 |           16.67 |
 | PLL                      |     0.278 |        2 |         6 |           33.33 |
 | DSPs                     |    <0.001 |        4 |       240 |            1.67 |
-| I/O                      |     0.392 |      123 |       210 |           58.57 |
+| I/O                      |     0.390 |      123 |       210 |           58.57 |
 | Static Power             |     0.113 |          |           |                 |
-| Total                    |     1.047 |          |           |                 |
+| Total                    |     1.050 |          |           |                 |
 +--------------------------+-----------+----------+-----------+-----------------+
 
 
@@ -78,11 +78,11 @@ Table of Contents
 +-----------+-------------+-----------+-------------+------------+
 | Source    | Voltage (V) | Total (A) | Dynamic (A) | Static (A) |
 +-----------+-------------+-----------+-------------+------------+
-| Vccint    |       1.000 |     0.192 |       0.171 |      0.021 |
-| Vccaux    |       1.800 |     0.263 |       0.245 |      0.018 |
+| Vccint    |       1.000 |     0.196 |       0.175 |      0.021 |
+| Vccaux    |       1.800 |     0.263 |       0.244 |      0.018 |
 | Vcco33    |       3.300 |     0.006 |       0.002 |      0.004 |
 | Vcco25    |       2.500 |     0.000 |       0.000 |      0.000 |
-| Vcco18    |       1.800 |     0.178 |       0.174 |      0.004 |
+| Vcco18    |       1.800 |     0.177 |       0.173 |      0.004 |
 | Vcco15    |       1.500 |     0.000 |       0.000 |      0.000 |
 | Vcco135   |       1.350 |     0.000 |       0.000 |      0.000 |
 | Vcco12    |       1.200 |     0.000 |       0.000 |      0.000 |
@@ -160,10 +160,10 @@ Table of Contents
 +-------------------------+-----------+
 | Name                    | Power (W) |
 +-------------------------+-----------+
-| rvfpganexys             |     0.934 |
-|   cdc                   |     0.008 |
-|     i_axi_cdc           |     0.008 |
-|       i_cdc_fifo_gray_r |     0.006 |
+| rvfpganexys             |     0.937 |
+|   cdc                   |     0.007 |
+|     i_axi_cdc           |     0.007 |
+|       i_cdc_fifo_gray_r |     0.005 |
 |   clk_gen               |     0.146 |
 |   clock_divider         |     0.120 |
 |     inst                |     0.120 |
@@ -174,13 +174,13 @@ Table of Contents
 |       IOBUFDS_1         |     0.007 |
 |       IOBUF_1           |     0.008 |
 |       IOBUF_10          |     0.008 |
-|       IOBUF_11          |     0.009 |
+|       IOBUF_11          |     0.007 |
 |       IOBUF_12          |     0.007 |
 |       IOBUF_13          |     0.007 |
 |       IOBUF_14          |     0.007 |
 |       IOBUF_15          |     0.008 |
 |       IOBUF_2           |     0.008 |
-|       IOBUF_3           |     0.009 |
+|       IOBUF_3           |     0.007 |
 |       IOBUF_4           |     0.007 |
 |       IOBUF_5           |     0.007 |
 |       IOBUF_6           |     0.007 |
@@ -189,19 +189,19 @@ Table of Contents
 |       IOBUF_9           |     0.008 |
 |       OBUFDS            |     0.008 |
 |       serv_rf_top       |     0.004 |
-|   swervolf              |     0.098 |
+|   swervolf              |     0.101 |
 |     axi2wb              |     0.002 |
 |     axi_intercon        |     0.003 |
 |       axi_xbar          |     0.003 |
-|     bootrom             |     0.003 |
-|       ram               |     0.003 |
-|     swerv_eh1           |     0.079 |
+|     bootrom             |     0.002 |
+|       ram               |     0.002 |
+|     swerv_eh1           |     0.080 |
 |       mem               |     0.045 |
-|       swerv             |     0.034 |
+|       swerv             |     0.035 |
 |     syscon              |     0.001 |
-|     timer_ptc           |     0.001 |
-|     vga                 |     0.007 |
-|       dtg               |     0.001 |
+|     timer_ptc           |     0.002 |
+|     vga                 |     0.010 |
+|       dtg               |     0.003 |
 |       img_ram           |     0.005 |
 +-------------------------+-----------+
 

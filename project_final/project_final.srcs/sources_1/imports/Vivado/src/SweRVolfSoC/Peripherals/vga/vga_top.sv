@@ -11,9 +11,15 @@ module vga_top(
     );
     
 
-// Internals for Sprites
-logic               alien2_active;
-logic   [3:0]       alien2_output;
+// Internals for Alien Model A Sprites
+logic               alienA1_active;
+logic               alienA2_active;
+logic               alienA3_active;
+logic               alienA4_active;
+logic               alienA5_active;
+logic   [3:0]       alienA_output;
+logic               player_active;
+logic   [3:0]       player_output;
 
 
     
@@ -30,18 +36,15 @@ logic [3:0]     vga_output;
 // Internals for Sprite
 logic [11:0]        pixel_row;
 logic [11:0]        pixel_column;
-/* Removed in this Implementation... Testing Alien2 Sprite in its own module
-logic [11:0]        sprite_row;
-logic [11:0]        sprite_row_ff;
-logic [11:0]        sprite_column;
-logic [11:0]        sprite_column_ff;
-*/
 
 
 initial begin
 video_on = 0;
 vga_output = 0;
-alien2_active = 0;
+alienA1_active = 0;
+alienA2_active = 0;
+alienA3_active = 0;
+player_active = 0;
 end
 
 dtg dtg(
@@ -65,29 +68,47 @@ image_ram img_ram(
   .doutb           (doutb)          // output wire [3 : 0] doutb
 );
 
-alien2 first(
+alienA five(
 	.clk    	       (vga_clk_i),
 	.rst	  	       (vga_rst_i),
     .pixel_row         (pixel_row),
 	.pixel_column      (pixel_column),
-	.alien2_output     (alien2_output),
-	.alien2_active     (alien2_active)	
+	.alienA_output     (alienA_output),
+	.alienA1_active    (alienA1_active),
+	.alienA2_active    (alienA2_active),
+	.alienA3_active    (alienA3_active),
+	.alienA4_active    (alienA4_active),
+	.alienA5_active    (alienA5_active)	
 );
-		
+
+player dfnder(
+	.clk    	       (vga_clk_i),
+	.rst	  	       (vga_rst_i),
+    .pixel_row         (pixel_row),
+	.pixel_column      (pixel_column),
+	.btn_col           (btn_col),
+	.player_output     (player_output),
+	.player_active     (player_active)	
+);		
 
 always_comb begin
 // Are we in a region that contains a Sprite???
 // Check active signals and output appropriate data
 
-    if (alien2_active) begin
-        vga_output = alien2_output;
-    end
-    else begin
-        vga_output = doutb;
-    end
-
-
+    if (alienA1_active || alienA2_active || alienA3_active || alienA4_active || alienA5_active) 
+        begin
+            vga_output = alienA_output;
+        end
+    else if (player_active)
+        begin
+            vga_output = player_output;
+        end
+    else 
+        begin
+            vga_output = doutb;
+        end
 end
+
 
 always_ff @ (posedge vga_clk_i)
 begin

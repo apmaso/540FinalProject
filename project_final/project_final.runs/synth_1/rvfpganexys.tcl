@@ -68,7 +68,7 @@ read_mem /home/amass/Documents/ECE540/FinalProject/Vivado/project_final/project_
 read_verilog -library xil_defaultlib -sv {
   /home/amass/Documents/ECE540/FinalProject/Vivado/project_final/project_final.srcs/sources_1/imports/Vivado/src/OtherSources/pulp-platform.org__common_cells_1.20.0/src/cf_math_pkg.sv
   /home/amass/Documents/ECE540/FinalProject/Vivado/project_final/project_final.srcs/sources_1/imports/Vivado/src/OtherSources/pulp-platform.org__common_cells_1.20.0/src/addr_decode.sv
-  /home/amass/Documents/ECE540/FinalProject/Vivado/src/SweRVolfSoC/Peripherals/vga/alien2.sv
+  /home/amass/Documents/ECE540/FinalProject/Vivado/src/SweRVolfSoC/Peripherals/vga/alienA.sv
   /home/amass/Documents/ECE540/FinalProject/Vivado/project_final/project_final.srcs/sources_1/imports/Vivado/src/SweRVolfSoC/Interconnect/AxiInterconnect/pulp-platform.org__axi_0.25.0/src/axi_pkg.sv
   /home/amass/Documents/ECE540/FinalProject/Vivado/project_final/project_final.srcs/sources_1/imports/Vivado/src/SweRVolfSoC/Interconnect/AxiInterconnect/pulp-platform.org__axi_0.25.0/src/axi_atop_filter.sv
   /home/amass/Documents/ECE540/FinalProject/Vivado/project_final/project_final.srcs/sources_1/imports/Vivado/src/SweRVolfSoC/Interconnect/AxiInterconnect/pulp-platform.org__axi_0.25.0/src/axi_cdc.sv
@@ -124,6 +124,7 @@ read_verilog -library xil_defaultlib -sv {
   /home/amass/Documents/ECE540/FinalProject/Vivado/project_final/project_final.srcs/sources_1/imports/Vivado/src/SweRVolfSoC/SweRVEh1CoreComplex/mem.sv
   /home/amass/Documents/ECE540/FinalProject/Vivado/project_final/project_final.srcs/sources_1/imports/Vivado/src/SweRVolfSoC/SweRVEh1CoreComplex/lib/mem_lib.sv
   /home/amass/Documents/ECE540/FinalProject/Vivado/project_final/project_final.srcs/sources_1/imports/Vivado/src/SweRVolfSoC/SweRVEh1CoreComplex/pic/pic_ctrl.sv
+  /home/amass/Documents/ECE540/FinalProject/Vivado/src/SweRVolfSoC/Peripherals/vga/player_module.sv
   /home/amass/Documents/ECE540/FinalProject/Vivado/project_final/project_final.srcs/sources_1/imports/Vivado/src/OtherSources/pulp-platform.org__common_cells_1.20.0/src/rr_arb_tree.sv
   /home/amass/Documents/ECE540/FinalProject/Vivado/project_final/project_final.srcs/sources_1/imports/Vivado/src/OtherSources/pulp-platform.org__common_cells_1.20.0/src/spill_register.sv
   /home/amass/Documents/ECE540/FinalProject/Vivado/project_final/project_final.srcs/sources_1/imports/Vivado/src/OtherSources/pulp-platform.org__common_cells_1.20.0/src/stream_register.sv

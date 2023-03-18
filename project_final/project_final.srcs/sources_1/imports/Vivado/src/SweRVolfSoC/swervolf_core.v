@@ -394,9 +394,8 @@ module swervolf_core
    wire [11:0]  btn_row_i;
    wire [11:0]  btn_col_i;
         
-   assign btn_row_i = btn_row_o;
-   assign btn_col_i = btn_col_o;
-         // Remember to add switches here
+
+    // Remember to add switches here
     vga_top vga (
        .vga_clk_i     (vga_clk_i),
        .vga_rst_i     (1'b0),
@@ -438,7 +437,11 @@ module swervolf_core
    wire         btn_irq;
    wire [11:0]  btn_row_o;        
    wire [11:0]  btn_col_o;
-      
+   
+   
+   assign btn_row_i = btn_row_o;
+   assign btn_col_i = btn_col_o;
+         
    // Push Buttons
    btn_top btn (
         .btn_clk_i         (clk), 
