@@ -18,6 +18,21 @@ logic               alienA3_active;
 logic               alienA4_active;
 logic               alienA5_active;
 logic   [3:0]       alienA_output;
+
+logic               alienB1_active;
+logic               alienB2_active;
+logic               alienB3_active;
+logic               alienB4_active;
+logic               alienB5_active;
+logic   [3:0]       alienB_output;
+
+logic               alienC1_active;
+logic               alienC2_active;
+logic               alienC3_active;
+logic               alienC4_active;
+logic               alienC5_active;
+logic   [3:0]       alienC_output;
+
 logic               player_active;
 logic   [3:0]       player_output;
 
@@ -44,6 +59,10 @@ vga_output = 0;
 alienA1_active = 0;
 alienA2_active = 0;
 alienA3_active = 0;
+alienA4_active = 0;
+alienA5_active = 0;
+alienB1_active = 0;
+alienC1_active = 0;
 player_active = 0;
 end
 
@@ -68,7 +87,7 @@ image_ram img_ram(
   .doutb           (doutb)          // output wire [3 : 0] doutb
 );
 
-alienA five(
+alienA A_gang(
 	.clk    	       (vga_clk_i),
 	.rst	  	       (vga_rst_i),
     .pixel_row         (pixel_row),
@@ -80,6 +99,34 @@ alienA five(
 	.alienA4_active    (alienA4_active),
 	.alienA5_active    (alienA5_active)	
 );
+
+alienB B_gang(
+	.clk    	       (vga_clk_i),
+	.rst	  	       (vga_rst_i),
+    .pixel_row         (pixel_row),
+	.pixel_column      (pixel_column),
+	.alienB_output     (alienB_output),
+	.alienB1_active    (alienB1_active),
+	.alienB2_active    (alienB2_active),
+	.alienB3_active    (alienB3_active),
+	.alienB4_active    (alienB4_active),
+	.alienB5_active    (alienB5_active)	
+);
+
+
+alienC C_gang(
+	.clk    	       (vga_clk_i),
+	.rst	  	       (vga_rst_i),
+    .pixel_row         (pixel_row),
+	.pixel_column      (pixel_column),
+	.alienC_output     (alienC_output),
+	.alienC1_active    (alienC1_active),
+	.alienC2_active    (alienC2_active),
+	.alienC3_active    (alienC3_active),
+	.alienC4_active    (alienC4_active),
+	.alienC5_active    (alienC5_active)	
+);
+
 
 player dfnder(
 	.clk    	       (vga_clk_i),
@@ -98,6 +145,14 @@ always_comb begin
     if (alienA1_active || alienA2_active || alienA3_active || alienA4_active || alienA5_active) 
         begin
             vga_output = alienA_output;
+        end
+    else if (alienB1_active || alienB2_active || alienB3_active || alienB4_active || alienB5_active) 
+        begin
+            vga_output = alienB_output;
+        end
+    else if (alienC1_active || alienC2_active || alienC3_active || alienC4_active || alienC5_active) 
+        begin
+            vga_output = alienC_output;
         end
     else if (player_active)
         begin

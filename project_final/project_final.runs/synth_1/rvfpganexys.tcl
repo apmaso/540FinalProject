@@ -69,6 +69,8 @@ read_verilog -library xil_defaultlib -sv {
   /home/amass/Documents/ECE540/FinalProject/Vivado/project_final/project_final.srcs/sources_1/imports/Vivado/src/OtherSources/pulp-platform.org__common_cells_1.20.0/src/cf_math_pkg.sv
   /home/amass/Documents/ECE540/FinalProject/Vivado/project_final/project_final.srcs/sources_1/imports/Vivado/src/OtherSources/pulp-platform.org__common_cells_1.20.0/src/addr_decode.sv
   /home/amass/Documents/ECE540/FinalProject/Vivado/src/SweRVolfSoC/Peripherals/vga/alienA.sv
+  /home/amass/Documents/ECE540/FinalProject/Vivado/src/SweRVolfSoC/Peripherals/vga/alienB.sv
+  /home/amass/Documents/ECE540/FinalProject/Vivado/src/SweRVolfSoC/Peripherals/vga/alienC.sv
   /home/amass/Documents/ECE540/FinalProject/Vivado/project_final/project_final.srcs/sources_1/imports/Vivado/src/SweRVolfSoC/Interconnect/AxiInterconnect/pulp-platform.org__axi_0.25.0/src/axi_pkg.sv
   /home/amass/Documents/ECE540/FinalProject/Vivado/project_final/project_final.srcs/sources_1/imports/Vivado/src/SweRVolfSoC/Interconnect/AxiInterconnect/pulp-platform.org__axi_0.25.0/src/axi_atop_filter.sv
   /home/amass/Documents/ECE540/FinalProject/Vivado/project_final/project_final.srcs/sources_1/imports/Vivado/src/SweRVolfSoC/Interconnect/AxiInterconnect/pulp-platform.org__axi_0.25.0/src/axi_cdc.sv
