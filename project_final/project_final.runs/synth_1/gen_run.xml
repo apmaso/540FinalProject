@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="synth_1" LaunchPart="xc7a100tcsg324-1" LaunchTime="1679182323">
+<GenRun Id="synth_1" LaunchPart="xc7a100tcsg324-1" LaunchTime="1679223435">
   <File Type="VDS-TIMING-PB" Name="rvfpganexys_timing_summary_synth.pb"/>
   <File Type="VDS-TIMINGSUMMARY" Name="rvfpganexys_timing_summary_synth.rpt"/>
   <File Type="RDS-DCP" Name="rvfpganexys.dcp"/>
@@ -543,6 +543,13 @@
       <FileInfo>
         <Attr Name="ImportPath" Val="$PPRDIR/../src/SweRVolfSoC/Interconnect/AxiInterconnect/pulp-platform.org__axi_0.25.0/src/axi_xbar.sv"/>
         <Attr Name="ImportTime" Val="1678649411"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PPRDIR/../src/SweRVolfSoC/Peripherals/vga/barriers.sv">
+      <FileInfo>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>
         <Attr Name="UsedIn" Val="simulation"/>

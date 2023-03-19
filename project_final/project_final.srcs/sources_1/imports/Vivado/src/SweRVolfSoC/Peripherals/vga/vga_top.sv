@@ -33,9 +33,16 @@ logic               alienC4_active;
 logic               alienC5_active;
 logic   [3:0]       alienC_output;
 
+// Internals for player
 logic               player_active;
 logic   [3:0]       player_output;
 
+// Internals for barriers
+logic               barrier1_active;
+logic               barrier2_active;
+logic               barrier3_active;
+logic               barrier4_active;
+logic   [3:0]       barrier_output;
 
     
 // Internals for VGA and ROM/RAM image
@@ -47,23 +54,37 @@ wire [3:0]      doutb;
 logic           video_on;
 logic [3:0]     vga_output;
 
-
 // Internals for Sprite
 logic [11:0]        pixel_row;
 logic [11:0]        pixel_column;
 
-
 initial begin
 video_on = 0;
 vga_output = 0;
+player_active = 0;
+
 alienA1_active = 0;
 alienA2_active = 0;
 alienA3_active = 0;
 alienA4_active = 0;
 alienA5_active = 0;
+
 alienB1_active = 0;
+alienB2_active = 0;
+alienB3_active = 0;
+alienB4_active = 0;
+alienB5_active = 0;
+
 alienC1_active = 0;
-player_active = 0;
+alienC2_active = 0;
+alienC3_active = 0;
+alienC4_active = 0;
+alienC5_active = 0;
+
+barrier1_active = 0;
+barrier2_active = 0;
+barrier3_active = 0;
+barrier4_active = 0;
 end
 
 dtg dtg(
@@ -138,6 +159,19 @@ player dfnder(
 	.player_active     (player_active)	
 );		
 
+barriers defense(
+	.clk    	        (vga_clk_i),
+	.rst	  	        (vga_rst_i),
+    .pixel_row          (pixel_row),
+	.pixel_column       (pixel_column),
+	.barrier_output     (barrier_output),
+	.barrier1_active    (barrier1_active),
+	.barrier2_active    (barrier2_active),
+	.barrier3_active    (barrier3_active),
+	.barrier4_active    (barrier4_active)	
+);
+
+
 always_comb begin
 // Are we in a region that contains a Sprite???
 // Check active signals and output appropriate data
@@ -153,6 +187,10 @@ always_comb begin
     else if (alienC1_active || alienC2_active || alienC3_active || alienC4_active || alienC5_active) 
         begin
             vga_output = alienC_output;
+        end
+    else if (barrier1_active || barrier2_active || barrier3_active || barrier4_active) 
+        begin
+            vga_output = barrier_output;
         end
     else if (player_active)
         begin

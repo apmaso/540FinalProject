@@ -17,6 +17,7 @@ proc create_report { reportName command } {
     send_msg_id runtcl-5 warning "$msg"
   }
 }
+set_param chipscope.maxJobs 1
 create_project -in_memory -part xc7a100tcsg324-1
 
 set_param project.singleFileAddWarning.threshold 0
@@ -81,6 +82,7 @@ read_verilog -library xil_defaultlib -sv {
   /home/amass/Documents/ECE540/FinalProject/Vivado/project_final/project_final.srcs/sources_1/imports/Vivado/src/SweRVolfSoC/Interconnect/AxiInterconnect/pulp-platform.org__axi_0.25.0/src/axi_intf.sv
   /home/amass/Documents/ECE540/FinalProject/Vivado/project_final/project_final.srcs/sources_1/imports/Vivado/src/SweRVolfSoC/Interconnect/AxiInterconnect/pulp-platform.org__axi_0.25.0/src/axi_mux.sv
   /home/amass/Documents/ECE540/FinalProject/Vivado/project_final/project_final.srcs/sources_1/imports/Vivado/src/SweRVolfSoC/Interconnect/AxiInterconnect/pulp-platform.org__axi_0.25.0/src/axi_xbar.sv
+  /home/amass/Documents/ECE540/FinalProject/Vivado/src/SweRVolfSoC/Peripherals/vga/barriers.sv
   /home/amass/Documents/ECE540/FinalProject/Vivado/project_final/project_final.srcs/sources_1/imports/Vivado/src/SweRVolfSoC/SweRVEh1CoreComplex/lib/beh_lib.sv
   /home/amass/Documents/ECE540/FinalProject/Vivado/project_final/project_final.srcs/sources_1/imports/Vivado/src/OtherSources/pulp-platform.org__common_cells_1.20.0/src/binary_to_gray.sv
   /home/amass/Documents/ECE540/FinalProject/Vivado/project_final/project_final.srcs/sources_1/imports/Vivado/src/OtherSources/bscan_tap.sv
