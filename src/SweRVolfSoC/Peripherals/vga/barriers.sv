@@ -31,167 +31,167 @@ initial begin
     active4 = 1'b0;
     barrier_pix = 4'b0000;
     // Initializing barriers 30 rows above the player sprite
-    // and close to centered as possible. Columns: 251 <-> 390
-    sprite_column = 250;
-    sprite_row = 430;
+    // and close to centered as possible. Columns: 181 <-> 460
+    sprite_column = 181;
+    sprite_row = 400;
 end
 
 always_comb begin
-    // Barrier Sprite's are 16 rows by 20 columns of pixels 
-    // There are 20 pixels between each barrier sprite --> Offsets are multiples of 40 
+    // Barrier Sprite's are 32 rows by 40 columns of pixels 
+    // There are 40 pixels between each barrier sprite --> Offsets are multiples of 40 
     // First sprite --> Offset of 0
-    active1 = ((sprite_row < pixel_row) && (pixel_row < sprite_row + 17) && (sprite_column < pixel_column) && (pixel_column < sprite_column + 21));
-    // Second sprite --> Offset of 40 
-     active2 = ((sprite_row < pixel_row) && (pixel_row < sprite_row + 17) && (sprite_column + 40 < pixel_column) && (pixel_column < sprite_column + 61));    
-    // Third sprite --> Offset of 80 
-     active3 = ((sprite_row < pixel_row) && (pixel_row < sprite_row + 17) && (sprite_column + 80 < pixel_column) && (pixel_column < sprite_column + 101));
-    // Fourth sprite --> Offset of 80
-     active4 = ((sprite_row < pixel_row) && (pixel_row < sprite_row + 17) && (sprite_column + 120 < pixel_column) && (pixel_column < sprite_column + 141));
+    active1 = ((sprite_row < pixel_row) && (pixel_row < sprite_row + 33) && (sprite_column < pixel_column) && (pixel_column < sprite_column + 41));
+    // Second sprite --> Offset of 80 
+    active2 = ((sprite_row < pixel_row) && (pixel_row < sprite_row + 33) && (sprite_column + 80 < pixel_column) && (pixel_column < sprite_column + 121));    
+    // Third sprite --> Offset of 160 
+    active3 = ((sprite_row < pixel_row) && (pixel_row < sprite_row + 33) && (sprite_column + 160 < pixel_column) && (pixel_column < sprite_column + 201));
+    // Fourth sprite --> Offset of 240
+    active4 = ((sprite_row < pixel_row) && (pixel_row < sprite_row + 33) && (sprite_column + 240 < pixel_column) && (pixel_column < sprite_column + 281));
    
    
-    // Row one of Barrier1's Sprite    
-    if ((pixel_row == sprite_row  + 1) && (sprite_column + 2 < pixel_column) && (pixel_column < sprite_column + 19))
+    // Row 1 & 2 of Barrier1's Sprite    
+    if ((sprite_row < pixel_row) && (pixel_row < sprite_row + 3) && (sprite_column + 4 < pixel_column) && (pixel_column < sprite_column + 37))
         begin
             barrier_pix = 4'b1111;
         end   
-    // Row 2 
-    else if ((sprite_row + 2 == pixel_row) && (sprite_column + 1 < pixel_column) && (pixel_column < sprite_column + 20))
+    // Row 3 & 4 
+    else if ((sprite_row + 2 < pixel_row) && (pixel_row < sprite_row + 5) && (sprite_column + 2 < pixel_column) && (pixel_column < sprite_column + 39))
         begin
             barrier_pix = 4'b1111;
         end   
-    // Rows 3 - 9 
-    else if ((sprite_row + 2 < pixel_row) && (pixel_row < sprite_row  + 10) && (sprite_column < pixel_column) && (pixel_column < sprite_column + 21))
+    // Rows 5 - 18 
+    else if ((sprite_row + 4 < pixel_row) && (pixel_row < sprite_row  + 19) && (sprite_column < pixel_column) && (pixel_column < sprite_column + 41))
         begin
             barrier_pix = 4'b1111;
         end
-    // Row 10
-    else if ((sprite_row + 10 == pixel_row) && (((sprite_column < pixel_column) && (pixel_column < sprite_column + 8)) || ((sprite_column + 13 < pixel_column) && (pixel_column < sprite_column + 21))))
+    // Row 19 & 20
+    else if ((sprite_row + 18 < pixel_row) && (pixel_row < sprite_row + 21) && (((sprite_column < pixel_column) && (pixel_column < sprite_column + 15)) || ((sprite_column + 26 < pixel_column) && (pixel_column < sprite_column + 41))))
         begin
             barrier_pix = 4'b1111;
         end
-    // Row 11 
-    else if ((sprite_row + 11 == pixel_row) && (((sprite_column < pixel_column) && (pixel_column < sprite_column + 7)) || ((sprite_column + 14 < pixel_column) && (pixel_column < sprite_column + 21))))
+    // Row 21 & 22
+    else if ((sprite_row + 20 < pixel_row) && (pixel_row < sprite_row + 23) && (((sprite_column < pixel_column) && (pixel_column < sprite_column + 13)) || ((sprite_column + 28 < pixel_column) && (pixel_column < sprite_column + 41))))
         begin
             barrier_pix = 4'b1111;
         end
-    // Rows 12 & 13
-    else if ((sprite_row + 11 < pixel_row) && (pixel_row < sprite_row + 14) && (((sprite_column < pixel_column) && (pixel_column < sprite_column + 6)) || ((sprite_column + 15 < pixel_column) && (pixel_column < sprite_column + 21))))
+    // Rows 23 - 26
+    else if ((sprite_row + 22 < pixel_row) && (pixel_row < sprite_row + 27) && (((sprite_column < pixel_column) && (pixel_column < sprite_column + 11)) || ((sprite_column + 30 < pixel_column) && (pixel_column < sprite_column + 41))))
         begin
             barrier_pix = 4'b1111;
         end
-    // Row 14, 15 and 16 
-    else if ((sprite_row + 13 < pixel_row) && (pixel_row < sprite_row + 17) && (((sprite_column < pixel_column) && (pixel_column < sprite_column + 5)) || ((sprite_column + 16 < pixel_column) && (pixel_column < sprite_column + 21))))
+    // Rows 27 - 32
+    else if ((sprite_row + 26 < pixel_row) && (pixel_row < sprite_row + 33) && (((sprite_column < pixel_column) && (pixel_column < sprite_column + 9)) || ((sprite_column + 32 < pixel_column) && (pixel_column < sprite_column + 41))))
         begin
             barrier_pix = 4'b1111;
         end
 
 
-    // Row one of Barrier2's Sprite (Offset = 40 pix)   
-    else if ((pixel_row == sprite_row  + 1) && (sprite_column + 42 < pixel_column) && (pixel_column < sprite_column + 59))
+    // Row 1 & 2 of Barrier2's Sprite (Offset = 80 pix)   
+    else if ((sprite_row < pixel_row) && (pixel_row < sprite_row + 3) && (sprite_column + 84 < pixel_column) && (pixel_column < sprite_column + 117))
         begin
             barrier_pix = 4'b1111;
         end   
-    // Row 2 
-    else if ((sprite_row + 2 == pixel_row) && (sprite_column + 41 < pixel_column) && (pixel_column < sprite_column + 60))
+    // Row 3 & 4 
+    else if ((sprite_row + 2 < pixel_row) && (pixel_row < sprite_row + 5) && (sprite_column + 82 < pixel_column) && (pixel_column < sprite_column + 119))
         begin
             barrier_pix = 4'b1111;
         end   
-    // Rows 3 - 9 
-    else if ((sprite_row + 2 < pixel_row) && (pixel_row < sprite_row  + 10) && (sprite_column + 40 < pixel_column) && (pixel_column < sprite_column + 61))
+    // Rows 5 - 18 
+    else if ((sprite_row + 4 < pixel_row) && (pixel_row < sprite_row  + 19) && (sprite_column + 80 < pixel_column) && (pixel_column < sprite_column + 121))
         begin
             barrier_pix = 4'b1111;
         end
-    // Row 10
-    else if ((sprite_row + 10 == pixel_row) && (((sprite_column + 40 < pixel_column) && (pixel_column < sprite_column + 48)) || ((sprite_column + 53 < pixel_column) && (pixel_column < sprite_column + 61))))
+    // Row 19 & 20
+    else if ((sprite_row + 18 < pixel_row) && (pixel_row < sprite_row + 21) && (((sprite_column + 80 < pixel_column) && (pixel_column < sprite_column + 95)) || ((sprite_column + 106 < pixel_column) && (pixel_column < sprite_column + 121))))
         begin
             barrier_pix = 4'b1111;
         end
-    // Row 11 
-    else if ((sprite_row + 11 == pixel_row) && (((sprite_column + 40 < pixel_column) && (pixel_column < sprite_column + 47)) || ((sprite_column + 54 < pixel_column) && (pixel_column < sprite_column + 61))))
+    // Row 21 & 22
+    else if ((sprite_row + 20 < pixel_row) && (pixel_row < sprite_row + 23) && (((sprite_column + 80 < pixel_column) && (pixel_column < sprite_column + 93)) || ((sprite_column + 108 < pixel_column) && (pixel_column < sprite_column + 121))))
         begin
             barrier_pix = 4'b1111;
         end
-    // Rows 12 & 13
-    else if ((sprite_row + 11 < pixel_row) && (pixel_row < sprite_row + 14) && (((sprite_column + 40 < pixel_column) && (pixel_column < sprite_column + 46)) || ((sprite_column + 55 < pixel_column) && (pixel_column < sprite_column + 61))))
+    // Rows 23 - 26
+    else if ((sprite_row + 22 < pixel_row) && (pixel_row < sprite_row + 27) && (((sprite_column + 80 < pixel_column) && (pixel_column < sprite_column + 91)) || ((sprite_column + 110 < pixel_column) && (pixel_column < sprite_column + 121))))
         begin
             barrier_pix = 4'b1111;
         end
-    // Row 14, 15 and 16 
-    else if ((sprite_row + 13 < pixel_row) && (pixel_row < sprite_row + 17) && (((sprite_column + 40 < pixel_column) && (pixel_column < sprite_column + 45)) || ((sprite_column + 56 < pixel_column) && (pixel_column < sprite_column + 61))))
+    // Rows 27 - 32
+    else if ((sprite_row + 26 < pixel_row) && (pixel_row < sprite_row + 33) && (((sprite_column + 80 < pixel_column) && (pixel_column < sprite_column + 89)) || ((sprite_column + 112 < pixel_column) && (pixel_column < sprite_column + 121))))
         begin
             barrier_pix = 4'b1111;
         end
 
 
-    // Row one of Barrier3's Sprite (Offset = 80 pix)   
-    else if ((pixel_row == sprite_row  + 1) && (sprite_column + 82 < pixel_column) && (pixel_column < sprite_column + 99))
+    // Row 1 & 2 of Barrier3's Sprite (Offset = 160 pix)   
+    else if ((sprite_row < pixel_row) && (pixel_row < sprite_row + 3) && (sprite_column + 164 < pixel_column) && (pixel_column < sprite_column + 197))
         begin
             barrier_pix = 4'b1111;
         end   
-    // Row 2 
-    else if ((sprite_row + 2 == pixel_row) && (sprite_column + 81 < pixel_column) && (pixel_column < sprite_column + 100))
+    // Row 3 & 4 
+    else if ((sprite_row + 2 < pixel_row) && (pixel_row < sprite_row + 5) && (sprite_column + 162 < pixel_column) && (pixel_column < sprite_column + 199))
         begin
             barrier_pix = 4'b1111;
         end   
-    // Rows 3 - 9 
-    else if ((sprite_row + 2 < pixel_row) && (pixel_row < sprite_row  + 10) && (sprite_column + 80 < pixel_column) && (pixel_column < sprite_column + 101))
+    // Rows 5 - 18 
+    else if ((sprite_row + 4 < pixel_row) && (pixel_row < sprite_row  + 19) && (sprite_column + 160 < pixel_column) && (pixel_column < sprite_column + 201))
         begin
             barrier_pix = 4'b1111;
         end
-    // Row 10
-    else if ((sprite_row + 10 == pixel_row) && (((sprite_column + 80 < pixel_column) && (pixel_column < sprite_column + 88)) || ((sprite_column + 93 < pixel_column) && (pixel_column < sprite_column + 101))))
+    // Row 19 & 20
+    else if ((sprite_row + 18 < pixel_row) && (pixel_row < sprite_row + 21) && (((sprite_column + 160 < pixel_column) && (pixel_column < sprite_column + 175)) || ((sprite_column + 186 < pixel_column) && (pixel_column < sprite_column + 201))))
         begin
             barrier_pix = 4'b1111;
         end
-    // Row 11 
-    else if ((sprite_row + 11 == pixel_row) && (((sprite_column + 80 < pixel_column) && (pixel_column < sprite_column + 87)) || ((sprite_column + 94 < pixel_column) && (pixel_column < sprite_column + 101))))
+    // Row 21 & 22
+    else if ((sprite_row + 20 < pixel_row) && (pixel_row < sprite_row + 23) && (((sprite_column + 160 < pixel_column) && (pixel_column < sprite_column + 173)) || ((sprite_column + 188 < pixel_column) && (pixel_column < sprite_column + 201))))
         begin
             barrier_pix = 4'b1111;
         end
-    // Rows 12 & 13
-    else if ((sprite_row + 11 < pixel_row) && (pixel_row < sprite_row + 14) && (((sprite_column + 80 < pixel_column) && (pixel_column < sprite_column + 86)) || ((sprite_column + 95 < pixel_column) && (pixel_column < sprite_column + 101))))
+    // Rows 23 - 26
+    else if ((sprite_row + 22 < pixel_row) && (pixel_row < sprite_row + 27) && (((sprite_column + 160 < pixel_column) && (pixel_column < sprite_column + 171)) || ((sprite_column + 190 < pixel_column) && (pixel_column < sprite_column + 201))))
         begin
             barrier_pix = 4'b1111;
         end
-    // Row 14, 15 and 16 
-    else if ((sprite_row + 13 < pixel_row) && (pixel_row < sprite_row + 17) && (((sprite_column + 80 < pixel_column) && (pixel_column < sprite_column + 85)) || ((sprite_column + 96 < pixel_column) && (pixel_column < sprite_column + 101))))
+    // Rows 27 - 32
+    else if ((sprite_row + 26 < pixel_row) && (pixel_row < sprite_row + 33) && (((sprite_column + 160 < pixel_column) && (pixel_column < sprite_column + 169)) || ((sprite_column + 192 < pixel_column) && (pixel_column < sprite_column + 201))))
         begin
             barrier_pix = 4'b1111;
         end
 
-
-    // Row one of Barrier4's Sprite (Offset = 120 pix)   
-    else if ((pixel_row == sprite_row  + 1) && (sprite_column + 122 < pixel_column) && (pixel_column < sprite_column + 139))
+    
+    // Row 1 & 2 of Barrier4's Sprite (Offset = 240 pix)   
+    else if ((sprite_row < pixel_row) && (pixel_row < sprite_row + 3) && (sprite_column + 244 < pixel_column) && (pixel_column < sprite_column + 277))
         begin
             barrier_pix = 4'b1111;
         end   
-    // Row 2 
-    else if ((sprite_row + 2 == pixel_row) && (sprite_column + 121 < pixel_column) && (pixel_column < sprite_column + 140))
+    // Row 3 & 4 
+    else if ((sprite_row + 2 < pixel_row) && (pixel_row < sprite_row + 5) && (sprite_column + 242 < pixel_column) && (pixel_column < sprite_column + 279))
         begin
             barrier_pix = 4'b1111;
         end   
-    // Rows 3 - 9 
-    else if ((sprite_row + 2 < pixel_row) && (pixel_row < sprite_row  + 10) && (sprite_column + 120 < pixel_column) && (pixel_column < sprite_column + 141))
+    // Rows 5 - 18 
+    else if ((sprite_row + 4 < pixel_row) && (pixel_row < sprite_row  + 19) && (sprite_column + 240 < pixel_column) && (pixel_column < sprite_column + 281))
         begin
             barrier_pix = 4'b1111;
         end
-    // Row 10
-    else if ((sprite_row + 10 == pixel_row) && (((sprite_column + 120 < pixel_column) && (pixel_column < sprite_column + 128)) || ((sprite_column + 133 < pixel_column) && (pixel_column < sprite_column + 141))))
+    // Row 19 & 20
+    else if ((sprite_row + 18 < pixel_row) && (pixel_row < sprite_row + 21) && (((sprite_column + 240 < pixel_column) && (pixel_column < sprite_column + 255)) || ((sprite_column + 266 < pixel_column) && (pixel_column < sprite_column + 281))))
         begin
             barrier_pix = 4'b1111;
         end
-    // Row 11 
-    else if ((sprite_row + 11 == pixel_row) && (((sprite_column + 120 < pixel_column) && (pixel_column < sprite_column + 127)) || ((sprite_column + 134 < pixel_column) && (pixel_column < sprite_column + 141))))
+    // Row 21 & 22
+    else if ((sprite_row + 20 < pixel_row) && (pixel_row < sprite_row + 23) && (((sprite_column + 240 < pixel_column) && (pixel_column < sprite_column + 253)) || ((sprite_column + 268 < pixel_column) && (pixel_column < sprite_column + 281))))
         begin
             barrier_pix = 4'b1111;
         end
-    // Rows 12 & 13
-    else if ((sprite_row + 11 < pixel_row) && (pixel_row < sprite_row + 14) && (((sprite_column + 120 < pixel_column) && (pixel_column < sprite_column + 126)) || ((sprite_column + 135 < pixel_column) && (pixel_column < sprite_column + 141))))
+    // Rows 23 - 26
+    else if ((sprite_row + 22 < pixel_row) && (pixel_row < sprite_row + 27) && (((sprite_column + 240 < pixel_column) && (pixel_column < sprite_column + 251)) || ((sprite_column + 270 < pixel_column) && (pixel_column < sprite_column + 281))))
         begin
             barrier_pix = 4'b1111;
         end
-    // Row 14, 15 and 16 
-    else if ((sprite_row + 13 < pixel_row) && (pixel_row < sprite_row + 17) && (((sprite_column + 120 < pixel_column) && (pixel_column < sprite_column + 125)) || ((sprite_column + 136 < pixel_column) && (pixel_column < sprite_column + 141))))
+    // Rows 27 - 32
+    else if ((sprite_row + 26 < pixel_row) && (pixel_row < sprite_row + 33) && (((sprite_column + 240 < pixel_column) && (pixel_column < sprite_column + 249)) || ((sprite_column + 272 < pixel_column) && (pixel_column < sprite_column + 281))))
         begin
             barrier_pix = 4'b1111;
         end

@@ -28,39 +28,37 @@ logic                       player_active_reg;
     
 initial begin
     player_pix = 4'b0000;
-    // Initializing Player 20 rows from the bottom of the screen. Rows 451 <-> 460
-    // and close to centered as possible. Columns: 313 <-> 328
-    player_row = 460;
-    player_column = 312;
+    // Initializing Player 30 rows from the bottom of the screen. Rows 431 <--> 450
+    // and close to centered as possible. Columns: 306 <-> 335
+    player_row = 430;
+    player_column = 305;
 end
 
 always_comb begin
     // Enable output of the player's sprite when in the proper region
-    // Alien2's Sprite is 16 rows by 16 columns of pixels   
-   
+    // Player sprite is 20 rows by 30 columns (measured in pixels)
     // Are we in the Sprite Region???
-    // ***** TURN THIS INTO AN ASSIGN STATEMEN WITH TERNARY OPERATOR *****
-    player_active_reg = ((player_row < pixel_row) && (pixel_row < player_row + 11) && (player_column < pixel_column) && (pixel_column < player_column + 16));
+    player_active_reg = ((player_row < pixel_row) && (pixel_row < player_row + 21) && (player_column < pixel_column) && (pixel_column < player_column + 31));
     
     
     // Sprite data for Player....  I can make this logic much simpler, if needed
-    // Row one and two of the player's sprite            
-    if ((player_row < pixel_row) && (pixel_row < player_row  + 3) && (pixel_column == player_column + 8))
+    // Rows 1 - 4 of the player's sprite            
+    if ((player_row < pixel_row) && (pixel_row < player_row  + 5) && (player_column + 14 < pixel_column) && (pixel_column < player_column + 17))
         begin
             player_pix = 4'b1111;
         end    
-    // Row three of the player's sprite
-    else if ((player_row + 3 == pixel_row) && (player_column + 2 < pixel_column) && (pixel_column < player_column + 14))
+    // Rows 5 & 6 of the player's sprite
+    else if ((player_row + 4 < pixel_row) && (pixel_row < player_row  + 7) && (player_column + 4 < pixel_column) && (pixel_column < player_column + 27))
         begin
             player_pix = 4'b1111;
         end
-    // Row four of the player's sprite
-    else if ((player_row + 4 == pixel_row) && (player_column + 1 < pixel_column) && (pixel_column < player_column + 15))
+    // Rows 7 & 8
+    else if ((player_row + 6 < pixel_row) && (pixel_row < player_row  + 9) && (player_column + 2 < pixel_column) && (pixel_column < player_column + 29))
         begin
             player_pix = 4'b1111;
         end
-    // Row five through 10 of the player's sprite
-    else if (((player_row + 4 < pixel_row) && (pixel_row < player_row  + 11)) && (player_column < pixel_column) && (pixel_column < player_column + 16))
+    // Rows 9 - 20
+    else if ((player_row + 8 < pixel_row) && (pixel_row < player_row  + 21) && (player_column < pixel_column) && (pixel_column < player_column + 31))
         begin
             player_pix = 4'b1111;
         end
