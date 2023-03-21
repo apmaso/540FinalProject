@@ -146,9 +146,11 @@ always_comb begin
         begin
             alien_pix = 4'b1111;
         end        
+        
+        
     // Sprite data for AlienA3....  I can make this logic much simpler, if needed
     // Row one & two   
-    else if ((sprite_row < pixel_row) && (pixel_row < sprite_row  + 3) && (sprite_column + 68 < pixel_column) && (pixel_column < sprite_column + 75))
+    else if ((sprite_row < pixel_row) && (pixel_row < sprite_row  + 3) && (sprite_column + 70 < pixel_column) && (pixel_column < sprite_column + 75))
         begin
             alien_pix = 4'b1111;
         end   

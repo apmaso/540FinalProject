@@ -32,7 +32,7 @@ initial begin
     barrier_pix = 4'b0000;
     // Initializing barriers 30 rows above the player sprite
     // and close to centered as possible. Columns: 181 <-> 460
-    sprite_column = 40;
+    sprite_column = 120;
     sprite_row = 380;
 end
 
@@ -41,11 +41,11 @@ always_comb begin
     // There are 80 pixels between each barrier sprite --> Offsets are multiples of 120 
     // First sprite --> Offset of 0
     active1 = ((sprite_row < pixel_row) && (pixel_row < sprite_row + 33) && (sprite_column < pixel_column) && (pixel_column < sprite_column + 41));
-    // Second sprite --> Offset of 80 
+    // Second sprite --> Offset of 120 
     active2 = ((sprite_row < pixel_row) && (pixel_row < sprite_row + 33) && (sprite_column + 120 < pixel_column) && (pixel_column < sprite_column + 161));    
-    // Third sprite --> Offset of 160 
+    // Third sprite --> Offset of 240 
     active3 = ((sprite_row < pixel_row) && (pixel_row < sprite_row + 33) && (sprite_column + 240 < pixel_column) && (pixel_column < sprite_column + 281));
-    // Fourth sprite --> Offset of 240
+    // Fourth sprite --> Offset of 360
     active4 = ((sprite_row < pixel_row) && (pixel_row < sprite_row + 33) && (sprite_column + 360 < pixel_column) && (pixel_column < sprite_column + 401));
    
    
