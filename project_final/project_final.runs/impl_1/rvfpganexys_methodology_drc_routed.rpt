@@ -1,8 +1,8 @@
 Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------
-| Tool Version : Vivado v.2019.2 (lin64) Build 2708876 Wed Nov  6 21:39:14 MST 2019
-| Date         : Mon Mar 20 15:13:25 2023
-| Host         : amass-MacBookPro running 64-bit Ubuntu 22.04.2 LTS
+| Tool Version : Vivado v.2019.2 (win64) Build 2708876 Wed Nov  6 21:40:23 MST 2019
+| Date         : Mon Mar 20 17:27:13 2023
+| Host         : caplab07 running 64-bit major release  (build 9200)
 | Command      : report_methodology -file rvfpganexys_methodology_drc_routed.rpt -pb rvfpganexys_methodology_drc_routed.pb -rpx rvfpganexys_methodology_drc_routed.rpx
 | Design       : rvfpganexys
 | Device       : xc7a100tcsg324-1
@@ -23,7 +23,7 @@ Table of Contents
           Floorplan: design_1
       Design limits: <entire design considered>
              Max violations: <unlimited>
-             Violations found: 277
+             Violations found: 247
 +-----------+------------------+--------------------------------------------------------------------+------------+
 | Rule      | Severity         | Description                                                        | Violations |
 +-----------+------------------+--------------------------------------------------------------------+------------+
@@ -36,10 +36,10 @@ Table of Contents
 | CKLD-2    | Warning          | Clock Net has IO Driver, not a Clock Buf, and/or non-Clock loads   | 1          |
 | DPIR-1    | Warning          | Asynchronous driver check                                          | 152        |
 | LUTAR-1   | Warning          | LUT drives async reset alert                                       | 4          |
-| SYNTH-6   | Warning          | Timing of a block RAM might be sub-optimal                         | 26         |
+| SYNTH-6   | Warning          | Timing of a block RAM might be sub-optimal                         | 24         |
 | SYNTH-10  | Warning          | Wide multiplier                                                    | 4          |
 | TIMING-9  | Warning          | Unknown CDC Logic                                                  | 1          |
-| TIMING-16 | Warning          | Large setup violation                                              | 40         |
+| TIMING-16 | Warning          | Large setup violation                                              | 12         |
 | TIMING-18 | Warning          | Missing input or output delay                                      | 22         |
 | REQP-1959 | Advisory         | connects_SERDES_RST_driver_not_FF                                  | 16         |
 +-----------+------------------+--------------------------------------------------------------------+------------+
@@ -78,7 +78,7 @@ Related violations: <none>
 
 TIMING-14#1 Critical Warning
 LUT on the clock tree  
-The LUT clk_gen/swervolfn_0_44453_BUFG_inst_i_1 has been found on the clock tree. Run opt_design to optimize the clock trees, then re-run report_methodology. If LUT(s) are still present in the clock trees, modify the RTL or the synthesis options accordingly to move the clock gating logic to dedicated clock enable resources. Keep in mind that post-opt_design database cannot be used for pin-planning tasks
+The LUT clk_gen/swervolfn_0_44576_BUFG_inst_i_1 has been found on the clock tree. Run opt_design to optimize the clock trees, then re-run report_methodology. If LUT(s) are still present in the clock trees, modify the RTL or the synthesis options accordingly to move the clock gating logic to dedicated clock enable resources. Keep in mind that post-opt_design database cannot be used for pin-planning tasks
 Related violations: <none>
 
 TIMING-14#2 Critical Warning
@@ -878,7 +878,7 @@ Related violations: <none>
 
 LUTAR-1#3 Warning
 LUT drives async reset alert  
-LUT cell clk_gen/dout[36]_i_3__5, with 2 or more inputs, drives asynchronous preset/clear pin(s) swervolf/swerv_eh1/swerv/lsu/clkdomain/lsu_c1_dc1_clkenff/dout_reg[0]/CLR, swervolf/swerv_eh1/swerv/lsu/clkdomain/lsu_c1_dc2_clkenff/dout_reg[0]/CLR, swervolf/swerv_eh1/swerv/lsu/clkdomain/lsu_freeze_c1_dc1_clkenff/dffs/dffs/dout_reg[0]/CLR, swervolf/swerv_eh1/swerv/lsu/clkdomain/lsu_freeze_c1_dc2_clkenff/dffs/dffs/dout_reg[0]/CLR, swervolf/swerv_eh1/swerv/lsu/clkdomain/lsu_freeze_c1_dc3_clkenff/dffs/dffs/dout_reg[0]/CLR, swervolf/swerv_eh1/swerv/lsu/clkdomain/lsu_freeze_c1_dc4_clkenff/dffs/dffs/dout_reg[0]/CLR, swervolf/swerv_eh1/swerv/lsu/lsu_i0_valid_dc4ff/dffs/dffs/dout_reg[0]/CLR, swervolf/swerv_eh1/swerv/lsu/lsu_i0_valid_dc5ff/dout_reg[0]/CLR, swervolf/swerv_eh1/swerv/lsu/lsu_i0_valid_dc1ff/dffs/dffs/dout_reg[0]/CLR, swervolf/swerv_eh1/swerv/lsu/lsu_i0_valid_dc2ff/dffs/dffs/dout_reg[0]/CLR, swervolf/swerv_eh1/swerv/lsu/lsu_single_ecc_err_dc4/dout_reg[0]/CLR, swervolf/swerv_eh1/swerv/lsu/lsu_single_ecc_err_dc5/dout_reg[0]/CLR, swervolf/swerv_eh1/swerv/lsu/stbuf/GenStBuf[0].stbuf_addr_in_picff/dffs/dout_reg[0]/CLR, swervolf/swerv_eh1/swerv/lsu/stbuf/GenStBuf[0].stbuf_addrff/genblock.dff/dffs/dout_reg[0]/CLR, swervolf/swerv_eh1/swerv/lsu/stbuf/GenStBuf[0].stbuf_addrff/genblock.dff/dffs/dout_reg[10]/CLR (the first 15 of 9066 listed). The LUT may glitch and trigger an unexpected reset, even if it is a properly timed path.
+LUT cell clk_gen/dout[36]_i_3__5, with 2 or more inputs, drives asynchronous preset/clear pin(s) swervolf/swerv_eh1/swerv/lsu/clkdomain/lsu_c1_dc1_clkenff/dout_reg[0]/CLR, swervolf/swerv_eh1/swerv/lsu/clkdomain/lsu_c1_dc2_clkenff/dout_reg[0]/CLR, swervolf/swerv_eh1/swerv/lsu/clkdomain/lsu_freeze_c1_dc1_clkenff/dffs/dffs/dout_reg[0]/CLR, swervolf/swerv_eh1/swerv/lsu/clkdomain/lsu_freeze_c1_dc2_clkenff/dffs/dffs/dout_reg[0]/CLR, swervolf/swerv_eh1/swerv/lsu/clkdomain/lsu_freeze_c1_dc3_clkenff/dffs/dffs/dout_reg[0]/CLR, swervolf/swerv_eh1/swerv/lsu/clkdomain/lsu_freeze_c1_dc4_clkenff/dffs/dffs/dout_reg[0]/CLR, swervolf/swerv_eh1/swerv/lsu/lsu_i0_valid_dc4ff/dffs/dffs/dout_reg[0]/CLR, swervolf/swerv_eh1/swerv/lsu/lsu_i0_valid_dc5ff/dout_reg[0]/CLR, swervolf/swerv_eh1/swerv/lsu/lsu_i0_valid_dc1ff/dffs/dffs/dout_reg[0]/CLR, swervolf/swerv_eh1/swerv/lsu/lsu_i0_valid_dc2ff/dffs/dffs/dout_reg[0]/CLR, swervolf/swerv_eh1/swerv/lsu/lsu_single_ecc_err_dc4/dout_reg[0]/CLR, swervolf/swerv_eh1/swerv/lsu/lsu_single_ecc_err_dc5/dout_reg[0]/CLR, swervolf/swerv_eh1/swerv/lsu/stbuf/GenStBuf[0].stbuf_addr_in_picff/dffs/dout_reg[0]/CLR, swervolf/swerv_eh1/swerv/lsu/stbuf/GenStBuf[0].stbuf_addrff/genblock.dff/dffs/dout_reg[0]/CLR, swervolf/swerv_eh1/swerv/lsu/stbuf/GenStBuf[0].stbuf_addrff/genblock.dff/dffs/dout_reg[10]/CLR (the first 15 of 9058 listed). The LUT may glitch and trigger an unexpected reset, even if it is a properly timed path.
 Related violations: <none>
 
 LUTAR-1#4 Warning
@@ -888,130 +888,120 @@ Related violations: <none>
 
 SYNTH-6#1 Warning
 Timing of a block RAM might be sub-optimal  
-The timing for the instance ddr2/ldc/serv_rf_top/rf_ram/memory_reg, implemented as a block RAM, might be sub-optimal as no output register was merged into the block
+The timing for the instance swervolf/swerv_eh1/mem/Gen_dccm_enable.dccm/mem_bank[0].dccm_bank/ram_core_reg_0, implemented as a block RAM, might be sub-optimal as no output register was merged into the block
 Related violations: <none>
 
 SYNTH-6#2 Warning
 Timing of a block RAM might be sub-optimal  
-The timing for the instance ddr2/ldc/storage_10_reg_0, implemented as a block RAM, might be sub-optimal as no output register was merged into the block
+The timing for the instance swervolf/swerv_eh1/mem/Gen_dccm_enable.dccm/mem_bank[0].dccm_bank/ram_core_reg_1, implemented as a block RAM, might be sub-optimal as no output register was merged into the block
 Related violations: <none>
 
 SYNTH-6#3 Warning
 Timing of a block RAM might be sub-optimal  
-The timing for the instance swervolf/swerv_eh1/mem/Gen_dccm_enable.dccm/mem_bank[0].dccm_bank/ram_core_reg_0, implemented as a block RAM, might be sub-optimal as no output register was merged into the block
+The timing for the instance swervolf/swerv_eh1/mem/Gen_dccm_enable.dccm/mem_bank[0].dccm_bank/ram_core_reg_2, implemented as a block RAM, might be sub-optimal as no output register was merged into the block
 Related violations: <none>
 
 SYNTH-6#4 Warning
 Timing of a block RAM might be sub-optimal  
-The timing for the instance swervolf/swerv_eh1/mem/Gen_dccm_enable.dccm/mem_bank[0].dccm_bank/ram_core_reg_1, implemented as a block RAM, might be sub-optimal as no output register was merged into the block
+The timing for the instance swervolf/swerv_eh1/mem/Gen_dccm_enable.dccm/mem_bank[1].dccm_bank/ram_core_reg_0, implemented as a block RAM, might be sub-optimal as no output register was merged into the block
 Related violations: <none>
 
 SYNTH-6#5 Warning
 Timing of a block RAM might be sub-optimal  
-The timing for the instance swervolf/swerv_eh1/mem/Gen_dccm_enable.dccm/mem_bank[0].dccm_bank/ram_core_reg_2, implemented as a block RAM, might be sub-optimal as no output register was merged into the block
+The timing for the instance swervolf/swerv_eh1/mem/Gen_dccm_enable.dccm/mem_bank[1].dccm_bank/ram_core_reg_1, implemented as a block RAM, might be sub-optimal as no output register was merged into the block
 Related violations: <none>
 
 SYNTH-6#6 Warning
 Timing of a block RAM might be sub-optimal  
-The timing for the instance swervolf/swerv_eh1/mem/Gen_dccm_enable.dccm/mem_bank[1].dccm_bank/ram_core_reg_0, implemented as a block RAM, might be sub-optimal as no output register was merged into the block
+The timing for the instance swervolf/swerv_eh1/mem/Gen_dccm_enable.dccm/mem_bank[1].dccm_bank/ram_core_reg_2, implemented as a block RAM, might be sub-optimal as no output register was merged into the block
 Related violations: <none>
 
 SYNTH-6#7 Warning
 Timing of a block RAM might be sub-optimal  
-The timing for the instance swervolf/swerv_eh1/mem/Gen_dccm_enable.dccm/mem_bank[1].dccm_bank/ram_core_reg_1, implemented as a block RAM, might be sub-optimal as no output register was merged into the block
+The timing for the instance swervolf/swerv_eh1/mem/Gen_dccm_enable.dccm/mem_bank[2].dccm_bank/ram_core_reg_0, implemented as a block RAM, might be sub-optimal as no output register was merged into the block
 Related violations: <none>
 
 SYNTH-6#8 Warning
 Timing of a block RAM might be sub-optimal  
-The timing for the instance swervolf/swerv_eh1/mem/Gen_dccm_enable.dccm/mem_bank[1].dccm_bank/ram_core_reg_2, implemented as a block RAM, might be sub-optimal as no output register was merged into the block
+The timing for the instance swervolf/swerv_eh1/mem/Gen_dccm_enable.dccm/mem_bank[2].dccm_bank/ram_core_reg_1, implemented as a block RAM, might be sub-optimal as no output register was merged into the block
 Related violations: <none>
 
 SYNTH-6#9 Warning
 Timing of a block RAM might be sub-optimal  
-The timing for the instance swervolf/swerv_eh1/mem/Gen_dccm_enable.dccm/mem_bank[2].dccm_bank/ram_core_reg_0, implemented as a block RAM, might be sub-optimal as no output register was merged into the block
+The timing for the instance swervolf/swerv_eh1/mem/Gen_dccm_enable.dccm/mem_bank[2].dccm_bank/ram_core_reg_2, implemented as a block RAM, might be sub-optimal as no output register was merged into the block
 Related violations: <none>
 
 SYNTH-6#10 Warning
 Timing of a block RAM might be sub-optimal  
-The timing for the instance swervolf/swerv_eh1/mem/Gen_dccm_enable.dccm/mem_bank[2].dccm_bank/ram_core_reg_1, implemented as a block RAM, might be sub-optimal as no output register was merged into the block
+The timing for the instance swervolf/swerv_eh1/mem/Gen_dccm_enable.dccm/mem_bank[3].dccm_bank/ram_core_reg_0, implemented as a block RAM, might be sub-optimal as no output register was merged into the block
 Related violations: <none>
 
 SYNTH-6#11 Warning
 Timing of a block RAM might be sub-optimal  
-The timing for the instance swervolf/swerv_eh1/mem/Gen_dccm_enable.dccm/mem_bank[2].dccm_bank/ram_core_reg_2, implemented as a block RAM, might be sub-optimal as no output register was merged into the block
+The timing for the instance swervolf/swerv_eh1/mem/Gen_dccm_enable.dccm/mem_bank[3].dccm_bank/ram_core_reg_1, implemented as a block RAM, might be sub-optimal as no output register was merged into the block
 Related violations: <none>
 
 SYNTH-6#12 Warning
 Timing of a block RAM might be sub-optimal  
-The timing for the instance swervolf/swerv_eh1/mem/Gen_dccm_enable.dccm/mem_bank[3].dccm_bank/ram_core_reg_0, implemented as a block RAM, might be sub-optimal as no output register was merged into the block
+The timing for the instance swervolf/swerv_eh1/mem/Gen_dccm_enable.dccm/mem_bank[3].dccm_bank/ram_core_reg_2, implemented as a block RAM, might be sub-optimal as no output register was merged into the block
 Related violations: <none>
 
 SYNTH-6#13 Warning
 Timing of a block RAM might be sub-optimal  
-The timing for the instance swervolf/swerv_eh1/mem/Gen_dccm_enable.dccm/mem_bank[3].dccm_bank/ram_core_reg_1, implemented as a block RAM, might be sub-optimal as no output register was merged into the block
+The timing for the instance swervolf/swerv_eh1/mem/Gen_dccm_enable.dccm/mem_bank[4].dccm_bank/ram_core_reg_0, implemented as a block RAM, might be sub-optimal as no output register was merged into the block
 Related violations: <none>
 
 SYNTH-6#14 Warning
 Timing of a block RAM might be sub-optimal  
-The timing for the instance swervolf/swerv_eh1/mem/Gen_dccm_enable.dccm/mem_bank[3].dccm_bank/ram_core_reg_2, implemented as a block RAM, might be sub-optimal as no output register was merged into the block
+The timing for the instance swervolf/swerv_eh1/mem/Gen_dccm_enable.dccm/mem_bank[4].dccm_bank/ram_core_reg_1, implemented as a block RAM, might be sub-optimal as no output register was merged into the block
 Related violations: <none>
 
 SYNTH-6#15 Warning
 Timing of a block RAM might be sub-optimal  
-The timing for the instance swervolf/swerv_eh1/mem/Gen_dccm_enable.dccm/mem_bank[4].dccm_bank/ram_core_reg_0, implemented as a block RAM, might be sub-optimal as no output register was merged into the block
+The timing for the instance swervolf/swerv_eh1/mem/Gen_dccm_enable.dccm/mem_bank[4].dccm_bank/ram_core_reg_2, implemented as a block RAM, might be sub-optimal as no output register was merged into the block
 Related violations: <none>
 
 SYNTH-6#16 Warning
 Timing of a block RAM might be sub-optimal  
-The timing for the instance swervolf/swerv_eh1/mem/Gen_dccm_enable.dccm/mem_bank[4].dccm_bank/ram_core_reg_1, implemented as a block RAM, might be sub-optimal as no output register was merged into the block
+The timing for the instance swervolf/swerv_eh1/mem/Gen_dccm_enable.dccm/mem_bank[5].dccm_bank/ram_core_reg_0, implemented as a block RAM, might be sub-optimal as no output register was merged into the block
 Related violations: <none>
 
 SYNTH-6#17 Warning
 Timing of a block RAM might be sub-optimal  
-The timing for the instance swervolf/swerv_eh1/mem/Gen_dccm_enable.dccm/mem_bank[4].dccm_bank/ram_core_reg_2, implemented as a block RAM, might be sub-optimal as no output register was merged into the block
+The timing for the instance swervolf/swerv_eh1/mem/Gen_dccm_enable.dccm/mem_bank[5].dccm_bank/ram_core_reg_1, implemented as a block RAM, might be sub-optimal as no output register was merged into the block
 Related violations: <none>
 
 SYNTH-6#18 Warning
 Timing of a block RAM might be sub-optimal  
-The timing for the instance swervolf/swerv_eh1/mem/Gen_dccm_enable.dccm/mem_bank[5].dccm_bank/ram_core_reg_0, implemented as a block RAM, might be sub-optimal as no output register was merged into the block
+The timing for the instance swervolf/swerv_eh1/mem/Gen_dccm_enable.dccm/mem_bank[5].dccm_bank/ram_core_reg_2, implemented as a block RAM, might be sub-optimal as no output register was merged into the block
 Related violations: <none>
 
 SYNTH-6#19 Warning
 Timing of a block RAM might be sub-optimal  
-The timing for the instance swervolf/swerv_eh1/mem/Gen_dccm_enable.dccm/mem_bank[5].dccm_bank/ram_core_reg_1, implemented as a block RAM, might be sub-optimal as no output register was merged into the block
+The timing for the instance swervolf/swerv_eh1/mem/Gen_dccm_enable.dccm/mem_bank[6].dccm_bank/ram_core_reg_0, implemented as a block RAM, might be sub-optimal as no output register was merged into the block
 Related violations: <none>
 
 SYNTH-6#20 Warning
 Timing of a block RAM might be sub-optimal  
-The timing for the instance swervolf/swerv_eh1/mem/Gen_dccm_enable.dccm/mem_bank[5].dccm_bank/ram_core_reg_2, implemented as a block RAM, might be sub-optimal as no output register was merged into the block
+The timing for the instance swervolf/swerv_eh1/mem/Gen_dccm_enable.dccm/mem_bank[6].dccm_bank/ram_core_reg_1, implemented as a block RAM, might be sub-optimal as no output register was merged into the block
 Related violations: <none>
 
 SYNTH-6#21 Warning
 Timing of a block RAM might be sub-optimal  
-The timing for the instance swervolf/swerv_eh1/mem/Gen_dccm_enable.dccm/mem_bank[6].dccm_bank/ram_core_reg_0, implemented as a block RAM, might be sub-optimal as no output register was merged into the block
+The timing for the instance swervolf/swerv_eh1/mem/Gen_dccm_enable.dccm/mem_bank[6].dccm_bank/ram_core_reg_2, implemented as a block RAM, might be sub-optimal as no output register was merged into the block
 Related violations: <none>
 
 SYNTH-6#22 Warning
 Timing of a block RAM might be sub-optimal  
-The timing for the instance swervolf/swerv_eh1/mem/Gen_dccm_enable.dccm/mem_bank[6].dccm_bank/ram_core_reg_1, implemented as a block RAM, might be sub-optimal as no output register was merged into the block
+The timing for the instance swervolf/swerv_eh1/mem/Gen_dccm_enable.dccm/mem_bank[7].dccm_bank/ram_core_reg_0, implemented as a block RAM, might be sub-optimal as no output register was merged into the block
 Related violations: <none>
 
 SYNTH-6#23 Warning
 Timing of a block RAM might be sub-optimal  
-The timing for the instance swervolf/swerv_eh1/mem/Gen_dccm_enable.dccm/mem_bank[6].dccm_bank/ram_core_reg_2, implemented as a block RAM, might be sub-optimal as no output register was merged into the block
-Related violations: <none>
-
-SYNTH-6#24 Warning
-Timing of a block RAM might be sub-optimal  
-The timing for the instance swervolf/swerv_eh1/mem/Gen_dccm_enable.dccm/mem_bank[7].dccm_bank/ram_core_reg_0, implemented as a block RAM, might be sub-optimal as no output register was merged into the block
-Related violations: <none>
-
-SYNTH-6#25 Warning
-Timing of a block RAM might be sub-optimal  
 The timing for the instance swervolf/swerv_eh1/mem/Gen_dccm_enable.dccm/mem_bank[7].dccm_bank/ram_core_reg_1, implemented as a block RAM, might be sub-optimal as no output register was merged into the block
 Related violations: <none>
 
-SYNTH-6#26 Warning
+SYNTH-6#24 Warning
 Timing of a block RAM might be sub-optimal  
 The timing for the instance swervolf/swerv_eh1/mem/Gen_dccm_enable.dccm/mem_bank[7].dccm_bank/ram_core_reg_2, implemented as a block RAM, might be sub-optimal as no output register was merged into the block
 Related violations: <none>
@@ -1043,202 +1033,62 @@ Related violations: <none>
 
 TIMING-16#1 Warning
 Large setup violation  
-There is a large setup violation of -1.002 ns between swervolf/swerv_eh1/swerv/dec/instbuff/ib1ff/genblock.dff/dffs/dout_reg[16]/C (clocked by clk_core) and swervolf/swerv_eh1/swerv/dec/instbuff/bp2ff/genblock.dff/dffs/dout_reg[46]/CE (clocked by clk_core). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+There is a large setup violation of -18.011 ns between swervolf/btn/btn_col_reg_reg[5]/C (clocked by clk_core) and swervolf/vga/vga_r_reg_reg[3]_lopt_replica/D (clocked by clk_31_5_clk_wiz_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
 TIMING-16#2 Warning
 Large setup violation  
-There is a large setup violation of -1.002 ns between swervolf/swerv_eh1/swerv/dec/instbuff/ib1ff/genblock.dff/dffs/dout_reg[16]/C (clocked by clk_core) and swervolf/swerv_eh1/swerv/dec/instbuff/ib2ff/genblock.dff/dffs/dout_reg[26]/CE (clocked by clk_core). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+There is a large setup violation of -18.297 ns between swervolf/btn/btn_col_reg_reg[5]/C (clocked by clk_core) and swervolf/vga/vga_r_reg_reg[1]_lopt_replica/D (clocked by clk_31_5_clk_wiz_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
 TIMING-16#3 Warning
 Large setup violation  
-There is a large setup violation of -1.002 ns between swervolf/swerv_eh1/swerv/dec/instbuff/ib1ff/genblock.dff/dffs/dout_reg[16]/C (clocked by clk_core) and swervolf/swerv_eh1/swerv/dec/instbuff/ib3ff/genblock.dff/dffs/dout_reg[25]/CE (clocked by clk_core). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+There is a large setup violation of -18.297 ns between swervolf/btn/btn_col_reg_reg[5]/C (clocked by clk_core) and swervolf/vga/vga_r_reg_reg[2]_lopt_replica_2/D (clocked by clk_31_5_clk_wiz_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
 TIMING-16#4 Warning
 Large setup violation  
-There is a large setup violation of -1.002 ns between swervolf/swerv_eh1/swerv/dec/instbuff/ib1ff/genblock.dff/dffs/dout_reg[16]/C (clocked by clk_core) and swervolf/swerv_eh1/swerv/dec/instbuff/pc2ff/genblock.dff/dffs/dout_reg[36]/CE (clocked by clk_core). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+There is a large setup violation of -18.301 ns between swervolf/btn/btn_col_reg_reg[1]/C (clocked by clk_core) and swervolf/vga/vga_r_reg_reg[0]_lopt_replica/D (clocked by clk_31_5_clk_wiz_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
 TIMING-16#5 Warning
 Large setup violation  
-There is a large setup violation of -1.012 ns between swervolf/swerv_eh1/swerv/dec/instbuff/ib1ff/genblock.dff/dffs/dout_reg[16]/C (clocked by clk_core) and swervolf/swerv_eh1/swerv/dec/instbuff/bp3ff/genblock.dff/dffs/dout_reg[53]/CE (clocked by clk_core). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+There is a large setup violation of -18.319 ns between swervolf/btn/btn_col_reg_reg[1]/C (clocked by clk_core) and swervolf/vga/vga_r_reg_reg[0]/D (clocked by clk_31_5_clk_wiz_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
 TIMING-16#6 Warning
 Large setup violation  
-There is a large setup violation of -1.051 ns between swervolf/swerv_eh1/swerv/dec/instbuff/ib1ff/genblock.dff/dffs/dout_reg[16]/C (clocked by clk_core) and swervolf/swerv_eh1/swerv/dec/instbuff/ib0ff/genblock.dff/dffs/dout_reg[27]/CE (clocked by clk_core). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+There is a large setup violation of -18.320 ns between swervolf/btn/btn_col_reg_reg[5]/C (clocked by clk_core) and swervolf/vga/vga_r_reg_reg[1]/D (clocked by clk_31_5_clk_wiz_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
 TIMING-16#7 Warning
 Large setup violation  
-There is a large setup violation of -1.051 ns between swervolf/swerv_eh1/swerv/dec/instbuff/ib1ff/genblock.dff/dffs/dout_reg[16]/C (clocked by clk_core) and swervolf/swerv_eh1/swerv/dec/instbuff/pc0ff/genblock.dff/dffs/dout_reg[6]/CE (clocked by clk_core). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+There is a large setup violation of -18.320 ns between swervolf/btn/btn_col_reg_reg[5]/C (clocked by clk_core) and swervolf/vga/vga_r_reg_reg[2]_lopt_replica/D (clocked by clk_31_5_clk_wiz_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
 TIMING-16#8 Warning
 Large setup violation  
-There is a large setup violation of -1.055 ns between swervolf/swerv_eh1/swerv/dec/instbuff/ib1ff/genblock.dff/dffs/dout_reg[16]/C (clocked by clk_core) and swervolf/swerv_eh1/swerv/dec/instbuff/bp2ff/genblock.dff/dffs/dout_reg[9]/CE (clocked by clk_core). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+There is a large setup violation of -18.322 ns between swervolf/btn/btn_col_reg_reg[1]/C (clocked by clk_core) and swervolf/vga/vga_r_reg_reg[0]_lopt_replica_2/D (clocked by clk_31_5_clk_wiz_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
 TIMING-16#9 Warning
 Large setup violation  
-There is a large setup violation of -1.055 ns between swervolf/swerv_eh1/swerv/dec/instbuff/ib1ff/genblock.dff/dffs/dout_reg[16]/C (clocked by clk_core) and swervolf/swerv_eh1/swerv/dec/instbuff/ib2ff/genblock.dff/dffs/dout_reg[10]/CE (clocked by clk_core). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+There is a large setup violation of -18.427 ns between swervolf/btn/btn_col_reg_reg[5]/C (clocked by clk_core) and swervolf/vga/vga_r_reg_reg[1]_lopt_replica_2/D (clocked by clk_31_5_clk_wiz_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
 TIMING-16#10 Warning
 Large setup violation  
-There is a large setup violation of -1.055 ns between swervolf/swerv_eh1/swerv/dec/instbuff/ib1ff/genblock.dff/dffs/dout_reg[16]/C (clocked by clk_core) and swervolf/swerv_eh1/swerv/dec/instbuff/pc2ff/genblock.dff/dffs/dout_reg[18]/CE (clocked by clk_core). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+There is a large setup violation of -18.438 ns between swervolf/btn/btn_col_reg_reg[5]/C (clocked by clk_core) and swervolf/vga/vga_r_reg_reg[2]/D (clocked by clk_31_5_clk_wiz_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
 TIMING-16#11 Warning
 Large setup violation  
-There is a large setup violation of -1.056 ns between swervolf/swerv_eh1/swerv/dec/instbuff/ib1ff/genblock.dff/dffs/dout_reg[16]/C (clocked by clk_core) and swervolf/swerv_eh1/swerv/dec/instbuff/pc0ff/genblock.dff/dffs/dout_reg[18]/CE (clocked by clk_core). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+There is a large setup violation of -18.446 ns between swervolf/btn/btn_col_reg_reg[5]/C (clocked by clk_core) and swervolf/vga/vga_r_reg_reg[3]_lopt_replica_2/D (clocked by clk_31_5_clk_wiz_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
 TIMING-16#12 Warning
 Large setup violation  
-There is a large setup violation of -1.056 ns between swervolf/swerv_eh1/swerv/dec/instbuff/ib1ff/genblock.dff/dffs/dout_reg[16]/C (clocked by clk_core) and swervolf/swerv_eh1/swerv/dec/instbuff/pc0ff/genblock.dff/dffs/dout_reg[9]/CE (clocked by clk_core). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
-Related violations: <none>
-
-TIMING-16#13 Warning
-Large setup violation  
-There is a large setup violation of -1.056 ns between swervolf/swerv_eh1/swerv/dec/instbuff/ib1ff/genblock.dff/dffs/dout_reg[16]/C (clocked by clk_core) and swervolf/swerv_eh1/swerv/lsu/lsu_lsc_ctl/sddc1ff/genblock.dff/dffs/dout_reg[37]/D (clocked by clk_core). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
-Related violations: <none>
-
-TIMING-16#14 Warning
-Large setup violation  
-There is a large setup violation of -1.063 ns between swervolf/swerv_eh1/swerv/dec/instbuff/ib1ff/genblock.dff/dffs/dout_reg[16]/C (clocked by clk_core) and swervolf/swerv_eh1/swerv/dec/instbuff/ib2ff/genblock.dff/dffs/dout_reg[8]/CE (clocked by clk_core). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
-Related violations: <none>
-
-TIMING-16#15 Warning
-Large setup violation  
-There is a large setup violation of -1.063 ns between swervolf/swerv_eh1/swerv/dec/instbuff/ib1ff/genblock.dff/dffs/dout_reg[16]/C (clocked by clk_core) and swervolf/swerv_eh1/swerv/dec/instbuff/pc2ff/genblock.dff/dffs/dout_reg[9]/CE (clocked by clk_core). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
-Related violations: <none>
-
-TIMING-16#16 Warning
-Large setup violation  
-There is a large setup violation of -1.063 ns between swervolf/swerv_eh1/swerv/dec/instbuff/ib1ff/genblock.dff/dffs/dout_reg[16]/C (clocked by clk_core) and swervolf/swerv_eh1/swerv/lsu/lsu_lsc_ctl/sddc1ff/genblock.dff/dffs/dout_reg[45]/D (clocked by clk_core). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
-Related violations: <none>
-
-TIMING-16#17 Warning
-Large setup violation  
-There is a large setup violation of -1.063 ns between swervolf/swerv_eh1/swerv/dec/instbuff/ib1ff/genblock.dff/dffs/dout_reg[16]/C (clocked by clk_core) and swervolf/swerv_eh1/swerv/lsu/lsu_lsc_ctl/sddc1ff/genblock.dff/dffs/dout_reg[63]/D (clocked by clk_core). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
-Related violations: <none>
-
-TIMING-16#18 Warning
-Large setup violation  
-There is a large setup violation of -1.078 ns between swervolf/swerv_eh1/swerv/dec/instbuff/ib1ff/genblock.dff/dffs/dout_reg[16]/C (clocked by clk_core) and swervolf/swerv_eh1/swerv/dec/instbuff/pc0ff/genblock.dff/dffs/dout_reg[33]/CE (clocked by clk_core). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
-Related violations: <none>
-
-TIMING-16#19 Warning
-Large setup violation  
-There is a large setup violation of -1.104 ns between swervolf/swerv_eh1/swerv/dec/instbuff/ib1ff/genblock.dff/dffs/dout_reg[16]/C (clocked by clk_core) and swervolf/swerv_eh1/swerv/dec/instbuff/bp1ff/genblock.dff/dffs/dout_reg[13]/CE (clocked by clk_core). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
-Related violations: <none>
-
-TIMING-16#20 Warning
-Large setup violation  
-There is a large setup violation of -1.104 ns between swervolf/swerv_eh1/swerv/dec/instbuff/ib1ff/genblock.dff/dffs/dout_reg[16]/C (clocked by clk_core) and swervolf/swerv_eh1/swerv/dec/instbuff/bp1ff/genblock.dff/dffs/dout_reg[15]/CE (clocked by clk_core). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
-Related violations: <none>
-
-TIMING-16#21 Warning
-Large setup violation  
-There is a large setup violation of -1.118 ns between swervolf/swerv_eh1/swerv/dec/instbuff/ib1ff/genblock.dff/dffs/dout_reg[16]/C (clocked by clk_core) and swervolf/swerv_eh1/swerv/dma_ctrl/GenFifo[1].fifo_done_dff/dffsc/dout_reg[0]/D (clocked by clk_core). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
-Related violations: <none>
-
-TIMING-16#22 Warning
-Large setup violation  
-There is a large setup violation of -1.136 ns between swervolf/swerv_eh1/swerv/dec/instbuff/ib1ff/genblock.dff/dffs/dout_reg[16]/C (clocked by clk_core) and swervolf/swerv_eh1/swerv/dec/instbuff/pc2ff/genblock.dff/dffs/dout_reg[0]/CE (clocked by clk_core). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
-Related violations: <none>
-
-TIMING-16#23 Warning
-Large setup violation  
-There is a large setup violation of -1.196 ns between swervolf/swerv_eh1/swerv/dec/instbuff/ib1ff/genblock.dff/dffs/dout_reg[16]/C (clocked by clk_core) and swervolf/swerv_eh1/swerv/dec/instbuff/pc0ff/genblock.dff/dffs/dout_reg[11]/CE (clocked by clk_core). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
-Related violations: <none>
-
-TIMING-16#24 Warning
-Large setup violation  
-There is a large setup violation of -1.196 ns between swervolf/swerv_eh1/swerv/dec/instbuff/ib1ff/genblock.dff/dffs/dout_reg[16]/C (clocked by clk_core) and swervolf/swerv_eh1/swerv/dec/instbuff/pc0ff/genblock.dff/dffs/dout_reg[32]/CE (clocked by clk_core). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
-Related violations: <none>
-
-TIMING-16#25 Warning
-Large setup violation  
-There is a large setup violation of -1.325 ns between swervolf/swerv_eh1/swerv/dec/instbuff/ib1ff/genblock.dff/dffs/dout_reg[16]/C (clocked by clk_core) and swervolf/swerv_eh1/swerv/lsu/lsu_lsc_ctl/sddc1ff/genblock.dff/dffs/dout_reg[60]/D (clocked by clk_core). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
-Related violations: <none>
-
-TIMING-16#26 Warning
-Large setup violation  
-There is a large setup violation of -1.439 ns between swervolf/swerv_eh1/swerv/dec/instbuff/ib1ff/genblock.dff/dffs/dout_reg[16]/C (clocked by clk_core) and swervolf/swerv_eh1/swerv/lsu/lsu_lsc_ctl/sddc1ff/genblock.dff/dffs/dout_reg[56]/D (clocked by clk_core). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
-Related violations: <none>
-
-TIMING-16#27 Warning
-Large setup violation  
-There is a large setup violation of -1.451 ns between swervolf/swerv_eh1/swerv/dec/instbuff/ib1ff/genblock.dff/dffs/dout_reg[16]/C (clocked by clk_core) and swervolf/swerv_eh1/swerv/lsu/lsu_lsc_ctl/sddc1ff/genblock.dff/dffs/dout_reg[57]/D (clocked by clk_core). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
-Related violations: <none>
-
-TIMING-16#28 Warning
-Large setup violation  
-There is a large setup violation of -1.482 ns between swervolf/swerv_eh1/swerv/dec/instbuff/ib1ff/genblock.dff/dffs/dout_reg[16]/C (clocked by clk_core) and swervolf/swerv_eh1/swerv/lsu/lsu_lsc_ctl/sddc1ff/genblock.dff/dffs/dout_reg[61]/D (clocked by clk_core). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
-Related violations: <none>
-
-TIMING-16#29 Warning
-Large setup violation  
-There is a large setup violation of -17.840 ns between swervolf/btn/btn_col_reg_reg[4]_replica/C (clocked by clk_core) and swervolf/vga/vga_r_reg_reg[3]/D (clocked by clk_31_5_clk_wiz_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
-Related violations: <none>
-
-TIMING-16#30 Warning
-Large setup violation  
-There is a large setup violation of -17.975 ns between swervolf/btn/btn_col_reg_reg[4]_replica/C (clocked by clk_core) and swervolf/vga/vga_r_reg_reg[0]_lopt_replica_2/D (clocked by clk_31_5_clk_wiz_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
-Related violations: <none>
-
-TIMING-16#31 Warning
-Large setup violation  
-There is a large setup violation of -18.039 ns between swervolf/btn/btn_col_reg_reg[4]_replica/C (clocked by clk_core) and swervolf/vga/vga_r_reg_reg[1]_lopt_replica_2/D (clocked by clk_31_5_clk_wiz_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
-Related violations: <none>
-
-TIMING-16#32 Warning
-Large setup violation  
-There is a large setup violation of -18.129 ns between swervolf/btn/btn_col_reg_reg[4]_replica/C (clocked by clk_core) and swervolf/vga/vga_r_reg_reg[3]_lopt_replica/D (clocked by clk_31_5_clk_wiz_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
-Related violations: <none>
-
-TIMING-16#33 Warning
-Large setup violation  
-There is a large setup violation of -18.247 ns between swervolf/btn/btn_col_reg_reg[4]_replica/C (clocked by clk_core) and swervolf/vga/vga_r_reg_reg[3]_lopt_replica_2/D (clocked by clk_31_5_clk_wiz_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
-Related violations: <none>
-
-TIMING-16#34 Warning
-Large setup violation  
-There is a large setup violation of -18.383 ns between swervolf/btn/btn_col_reg_reg[4]_replica/C (clocked by clk_core) and swervolf/vga/vga_r_reg_reg[0]_lopt_replica/D (clocked by clk_31_5_clk_wiz_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
-Related violations: <none>
-
-TIMING-16#35 Warning
-Large setup violation  
-There is a large setup violation of -18.421 ns between swervolf/btn/btn_col_reg_reg[4]_replica/C (clocked by clk_core) and swervolf/vga/vga_r_reg_reg[1]/D (clocked by clk_31_5_clk_wiz_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
-Related violations: <none>
-
-TIMING-16#36 Warning
-Large setup violation  
-There is a large setup violation of -18.452 ns between swervolf/btn/btn_col_reg_reg[4]_replica/C (clocked by clk_core) and swervolf/vga/vga_r_reg_reg[1]_lopt_replica/D (clocked by clk_31_5_clk_wiz_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
-Related violations: <none>
-
-TIMING-16#37 Warning
-Large setup violation  
-There is a large setup violation of -18.566 ns between swervolf/btn/btn_col_reg_reg[4]_replica/C (clocked by clk_core) and swervolf/vga/vga_r_reg_reg[0]/D (clocked by clk_31_5_clk_wiz_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
-Related violations: <none>
-
-TIMING-16#38 Warning
-Large setup violation  
-There is a large setup violation of -18.603 ns between swervolf/btn/btn_col_reg_reg[4]_replica/C (clocked by clk_core) and swervolf/vga/vga_r_reg_reg[2]_lopt_replica_2/D (clocked by clk_31_5_clk_wiz_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
-Related violations: <none>
-
-TIMING-16#39 Warning
-Large setup violation  
-There is a large setup violation of -18.605 ns between swervolf/btn/btn_col_reg_reg[4]_replica/C (clocked by clk_core) and swervolf/vga/vga_r_reg_reg[2]_lopt_replica/D (clocked by clk_31_5_clk_wiz_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
-Related violations: <none>
-
-TIMING-16#40 Warning
-Large setup violation  
-There is a large setup violation of -18.776 ns between swervolf/btn/btn_col_reg_reg[4]_replica/C (clocked by clk_core) and swervolf/vga/vga_r_reg_reg[2]/D (clocked by clk_31_5_clk_wiz_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
+There is a large setup violation of -18.448 ns between swervolf/btn/btn_col_reg_reg[5]/C (clocked by clk_core) and swervolf/vga/vga_r_reg_reg[3]/D (clocked by clk_31_5_clk_wiz_0). Large setup violations at the end of those stages might be difficult to fix during the post-placement implementation flow and could be the result of non-optimal XDC constraints or non-optimal design architecture
 Related violations: <none>
 
 TIMING-18#1 Warning

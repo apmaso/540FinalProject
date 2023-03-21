@@ -30,7 +30,7 @@ initial begin
     player_pix = 4'b0000;
     // Initializing Player 30 rows from the bottom of the screen. Rows 431 <--> 450
     // and close to centered as possible. Columns: 306 <-> 335
-    player_row = 430;
+    player_row = 440;
     player_column = 305;
 end
 

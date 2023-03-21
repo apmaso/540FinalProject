@@ -32,21 +32,21 @@ initial begin
     barrier_pix = 4'b0000;
     // Initializing barriers 30 rows above the player sprite
     // and close to centered as possible. Columns: 181 <-> 460
-    sprite_column = 181;
-    sprite_row = 400;
+    sprite_column = 40;
+    sprite_row = 380;
 end
 
 always_comb begin
     // Barrier Sprite's are 32 rows by 40 columns of pixels 
-    // There are 40 pixels between each barrier sprite --> Offsets are multiples of 40 
+    // There are 80 pixels between each barrier sprite --> Offsets are multiples of 120 
     // First sprite --> Offset of 0
     active1 = ((sprite_row < pixel_row) && (pixel_row < sprite_row + 33) && (sprite_column < pixel_column) && (pixel_column < sprite_column + 41));
     // Second sprite --> Offset of 80 
-    active2 = ((sprite_row < pixel_row) && (pixel_row < sprite_row + 33) && (sprite_column + 80 < pixel_column) && (pixel_column < sprite_column + 121));    
+    active2 = ((sprite_row < pixel_row) && (pixel_row < sprite_row + 33) && (sprite_column + 120 < pixel_column) && (pixel_column < sprite_column + 161));    
     // Third sprite --> Offset of 160 
-    active3 = ((sprite_row < pixel_row) && (pixel_row < sprite_row + 33) && (sprite_column + 160 < pixel_column) && (pixel_column < sprite_column + 201));
+    active3 = ((sprite_row < pixel_row) && (pixel_row < sprite_row + 33) && (sprite_column + 240 < pixel_column) && (pixel_column < sprite_column + 281));
     // Fourth sprite --> Offset of 240
-    active4 = ((sprite_row < pixel_row) && (pixel_row < sprite_row + 33) && (sprite_column + 240 < pixel_column) && (pixel_column < sprite_column + 281));
+    active4 = ((sprite_row < pixel_row) && (pixel_row < sprite_row + 33) && (sprite_column + 360 < pixel_column) && (pixel_column < sprite_column + 401));
    
    
     // Row 1 & 2 of Barrier1's Sprite    
@@ -86,81 +86,44 @@ always_comb begin
         end
 
 
-    // Row 1 & 2 of Barrier2's Sprite (Offset = 80 pix)   
-    else if ((sprite_row < pixel_row) && (pixel_row < sprite_row + 3) && (sprite_column + 84 < pixel_column) && (pixel_column < sprite_column + 117))
+    // Row 1 & 2 of Barrier2's Sprite (Offset = 120 pix)   
+    else if ((sprite_row < pixel_row) && (pixel_row < sprite_row + 3) && (sprite_column + 124 < pixel_column) && (pixel_column < sprite_column + 157))
         begin
             barrier_pix = 4'b1111;
         end   
     // Row 3 & 4 
-    else if ((sprite_row + 2 < pixel_row) && (pixel_row < sprite_row + 5) && (sprite_column + 82 < pixel_column) && (pixel_column < sprite_column + 119))
+    else if ((sprite_row + 2 < pixel_row) && (pixel_row < sprite_row + 5) && (sprite_column + 122 < pixel_column) && (pixel_column < sprite_column + 159))
         begin
             barrier_pix = 4'b1111;
         end   
     // Rows 5 - 18 
-    else if ((sprite_row + 4 < pixel_row) && (pixel_row < sprite_row  + 19) && (sprite_column + 80 < pixel_column) && (pixel_column < sprite_column + 121))
+    else if ((sprite_row + 4 < pixel_row) && (pixel_row < sprite_row  + 19) && (sprite_column + 120 < pixel_column) && (pixel_column < sprite_column + 161))
         begin
             barrier_pix = 4'b1111;
         end
     // Row 19 & 20
-    else if ((sprite_row + 18 < pixel_row) && (pixel_row < sprite_row + 21) && (((sprite_column + 80 < pixel_column) && (pixel_column < sprite_column + 95)) || ((sprite_column + 106 < pixel_column) && (pixel_column < sprite_column + 121))))
+    else if ((sprite_row + 18 < pixel_row) && (pixel_row < sprite_row + 21) && (((sprite_column + 120 < pixel_column) && (pixel_column < sprite_column + 135)) || ((sprite_column + 146 < pixel_column) && (pixel_column < sprite_column + 161))))
         begin
             barrier_pix = 4'b1111;
         end
     // Row 21 & 22
-    else if ((sprite_row + 20 < pixel_row) && (pixel_row < sprite_row + 23) && (((sprite_column + 80 < pixel_column) && (pixel_column < sprite_column + 93)) || ((sprite_column + 108 < pixel_column) && (pixel_column < sprite_column + 121))))
+    else if ((sprite_row + 20 < pixel_row) && (pixel_row < sprite_row + 23) && (((sprite_column + 120 < pixel_column) && (pixel_column < sprite_column + 133)) || ((sprite_column + 148 < pixel_column) && (pixel_column < sprite_column + 161))))
         begin
             barrier_pix = 4'b1111;
         end
     // Rows 23 - 26
-    else if ((sprite_row + 22 < pixel_row) && (pixel_row < sprite_row + 27) && (((sprite_column + 80 < pixel_column) && (pixel_column < sprite_column + 91)) || ((sprite_column + 110 < pixel_column) && (pixel_column < sprite_column + 121))))
+    else if ((sprite_row + 22 < pixel_row) && (pixel_row < sprite_row + 27) && (((sprite_column + 120 < pixel_column) && (pixel_column < sprite_column + 131)) || ((sprite_column + 150 < pixel_column) && (pixel_column < sprite_column + 161))))
         begin
             barrier_pix = 4'b1111;
         end
     // Rows 27 - 32
-    else if ((sprite_row + 26 < pixel_row) && (pixel_row < sprite_row + 33) && (((sprite_column + 80 < pixel_column) && (pixel_column < sprite_column + 89)) || ((sprite_column + 112 < pixel_column) && (pixel_column < sprite_column + 121))))
+    else if ((sprite_row + 26 < pixel_row) && (pixel_row < sprite_row + 33) && (((sprite_column + 120 < pixel_column) && (pixel_column < sprite_column + 129)) || ((sprite_column + 152 < pixel_column) && (pixel_column < sprite_column + 161))))
         begin
             barrier_pix = 4'b1111;
         end
 
 
-    // Row 1 & 2 of Barrier3's Sprite (Offset = 160 pix)   
-    else if ((sprite_row < pixel_row) && (pixel_row < sprite_row + 3) && (sprite_column + 164 < pixel_column) && (pixel_column < sprite_column + 197))
-        begin
-            barrier_pix = 4'b1111;
-        end   
-    // Row 3 & 4 
-    else if ((sprite_row + 2 < pixel_row) && (pixel_row < sprite_row + 5) && (sprite_column + 162 < pixel_column) && (pixel_column < sprite_column + 199))
-        begin
-            barrier_pix = 4'b1111;
-        end   
-    // Rows 5 - 18 
-    else if ((sprite_row + 4 < pixel_row) && (pixel_row < sprite_row  + 19) && (sprite_column + 160 < pixel_column) && (pixel_column < sprite_column + 201))
-        begin
-            barrier_pix = 4'b1111;
-        end
-    // Row 19 & 20
-    else if ((sprite_row + 18 < pixel_row) && (pixel_row < sprite_row + 21) && (((sprite_column + 160 < pixel_column) && (pixel_column < sprite_column + 175)) || ((sprite_column + 186 < pixel_column) && (pixel_column < sprite_column + 201))))
-        begin
-            barrier_pix = 4'b1111;
-        end
-    // Row 21 & 22
-    else if ((sprite_row + 20 < pixel_row) && (pixel_row < sprite_row + 23) && (((sprite_column + 160 < pixel_column) && (pixel_column < sprite_column + 173)) || ((sprite_column + 188 < pixel_column) && (pixel_column < sprite_column + 201))))
-        begin
-            barrier_pix = 4'b1111;
-        end
-    // Rows 23 - 26
-    else if ((sprite_row + 22 < pixel_row) && (pixel_row < sprite_row + 27) && (((sprite_column + 160 < pixel_column) && (pixel_column < sprite_column + 171)) || ((sprite_column + 190 < pixel_column) && (pixel_column < sprite_column + 201))))
-        begin
-            barrier_pix = 4'b1111;
-        end
-    // Rows 27 - 32
-    else if ((sprite_row + 26 < pixel_row) && (pixel_row < sprite_row + 33) && (((sprite_column + 160 < pixel_column) && (pixel_column < sprite_column + 169)) || ((sprite_column + 192 < pixel_column) && (pixel_column < sprite_column + 201))))
-        begin
-            barrier_pix = 4'b1111;
-        end
-
-    
-    // Row 1 & 2 of Barrier4's Sprite (Offset = 240 pix)   
+    // Row 1 & 2 of Barrier3's Sprite (Offset = 240 pix)   
     else if ((sprite_row < pixel_row) && (pixel_row < sprite_row + 3) && (sprite_column + 244 < pixel_column) && (pixel_column < sprite_column + 277))
         begin
             barrier_pix = 4'b1111;
@@ -192,6 +155,43 @@ always_comb begin
         end
     // Rows 27 - 32
     else if ((sprite_row + 26 < pixel_row) && (pixel_row < sprite_row + 33) && (((sprite_column + 240 < pixel_column) && (pixel_column < sprite_column + 249)) || ((sprite_column + 272 < pixel_column) && (pixel_column < sprite_column + 281))))
+        begin
+            barrier_pix = 4'b1111;
+        end
+
+    
+    // Row 1 & 2 of Barrier4's Sprite (Offset = 360 pix)   
+    else if ((sprite_row < pixel_row) && (pixel_row < sprite_row + 3) && (sprite_column + 364 < pixel_column) && (pixel_column < sprite_column + 397))
+        begin
+            barrier_pix = 4'b1111;
+        end   
+    // Row 3 & 4 
+    else if ((sprite_row + 2 < pixel_row) && (pixel_row < sprite_row + 5) && (sprite_column + 362 < pixel_column) && (pixel_column < sprite_column + 399))
+        begin
+            barrier_pix = 4'b1111;
+        end   
+    // Rows 5 - 18 
+    else if ((sprite_row + 4 < pixel_row) && (pixel_row < sprite_row  + 19) && (sprite_column + 360 < pixel_column) && (pixel_column < sprite_column + 401))
+        begin
+            barrier_pix = 4'b1111;
+        end
+    // Row 19 & 20
+    else if ((sprite_row + 18 < pixel_row) && (pixel_row < sprite_row + 21) && (((sprite_column + 360 < pixel_column) && (pixel_column < sprite_column + 375)) || ((sprite_column + 386 < pixel_column) && (pixel_column < sprite_column + 401))))
+        begin
+            barrier_pix = 4'b1111;
+        end
+    // Row 21 & 22
+    else if ((sprite_row + 20 < pixel_row) && (pixel_row < sprite_row + 23) && (((sprite_column + 360 < pixel_column) && (pixel_column < sprite_column + 373)) || ((sprite_column + 388 < pixel_column) && (pixel_column < sprite_column + 401))))
+        begin
+            barrier_pix = 4'b1111;
+        end
+    // Rows 23 - 26
+    else if ((sprite_row + 22 < pixel_row) && (pixel_row < sprite_row + 27) && (((sprite_column + 360 < pixel_column) && (pixel_column < sprite_column + 371)) || ((sprite_column + 390 < pixel_column) && (pixel_column < sprite_column + 401))))
+        begin
+            barrier_pix = 4'b1111;
+        end
+    // Rows 27 - 32
+    else if ((sprite_row + 26 < pixel_row) && (pixel_row < sprite_row + 33) && (((sprite_column + 360 < pixel_column) && (pixel_column < sprite_column + 369)) || ((sprite_column + 392 < pixel_column) && (pixel_column < sprite_column + 401))))
         begin
             barrier_pix = 4'b1111;
         end

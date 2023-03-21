@@ -44,27 +44,17 @@ initial begin
     // Initialized AlienA 20 rows from the top of the screen
     // ==> Initializing AlienB 10 rows below AlienA sprite, at row 46
     // ====> Initializing AlienC 10 rows below Alien B sprite, at row 72
-    // and aligned with the other Alien blocks.... Will need to tweak later
-    // Tweak: AlienC Block is 48 pixels wider than AlienA Block
-    //   =====> 312 - 24 = 288
-    
-    sprite_column_ff = 288;
+
+    sprite_column_ff = 245;
     sprite_row_ff = 72;
-    sprite_column = 288;
+    sprite_column = 245;
     sprite_row = 72;
     motion_counter = 0;
     move_left = 1'b0;
 end
 
 always_comb begin
-    // AlienA Sprite's are 16 rows by 16 columns of pixels 
-    // There are 4 pixels between each alien sprite --> Offsets are multiples of 20 
-    // First sprite --> Offset of 0, Second --> Offset of 20, Third --> Offset of 40 
-    // ******************************************************
-    // AlienB's Sprite's are 16 rows by 22 columns of pixels
-    // There are 8 pixels between each alien sprite --> Offsets are multiples of 30
-    // First sprite --> Offset of 0, Second --> Offset of 30, Third --> Offset of 60 
-    // ******************************************************
+
     // AlienC's Sprite is 16 rows by 24 columns of pixels
     // There are 6 pixels between each alien sprite --> Offsets are multiples of 30
     // First sprite --> Offset of 0, Second --> Offset of 30, Third --> Offset of 60 
